@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>KUNEBERG — UX Wireframe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f7f7;--line:#d6d6d6;--line-strong:#a8a8a8;--g-500:#909090;--g-600:#6b6b6b;--g-800:#2a2a2a;--ink:#1c1c1c;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);font-family:'Montserrat',Arial,sans-serif;color:var(--ink);display:flex;justify-content:center;padding:60px 20px;}
+.wrap{max-width:640px;width:100%;}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--g-500);font-weight:700;margin-bottom:14px;}
+h1{font-size:32px;font-weight:800;margin:0 0 12px;letter-spacing:-0.01em;}
+p.sub{font-size:15px;line-height:1.6;color:var(--g-600);margin:0 0 40px;max-width:520px;}
+.list{display:flex;flex-direction:column;gap:14px;}
+.item{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line-strong);background:#fff;padding:20px 24px;text-decoration:none;color:var(--ink);}
+.item:hover{border-color:var(--g-800);}
+.item-title{font-size:16px;font-weight:700;margin-bottom:4px;}
+.item-desc{font-size:13px;color:var(--g-600);}
+.arrow{font-size:18px;color:var(--g-500);flex-shrink:0;}
+.note{margin-top:40px;font-size:12.5px;color:var(--g-500);line-height:1.6;border-top:1px dashed var(--line);padding-top:20px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Low-fidelity UX Wireframe</div>
+  <h1>KUNEBERG — Landing Page</h1>
+  <p class="sub">Статична версія вайрфрейму B2B-лендингу для HoReCa. Структура, ієрархія та логіка конверсії — без фінального візуального дизайну.</p>
+  <div class="list">
+    <a class="item" href="desktop.html">
+      <div>
+        <div class="item-title">Desktop 1440</div>
+        <div class="item-desc">Повна сторінка, усі 15 блоків одним скролом</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="item" href="mobile.html">
+      <div>
+        <div class="item-title">Mobile 390</div>
+        <div class="item-desc">Адаптована версія: каруселі, фіксований CTA внизу</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="item" href="product-modal.html">
+      <div>
+        <div class="item-title">Modal · Товар</div>
+        <div class="item-desc">Попап картки товару з розділу «Основні види продукції»</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="item" href="mobile-menu.html">
+      <div>
+        <div class="item-title">Мобільне меню</div>
+        <div class="item-desc">Повноекранне меню за тапом на гамбургер</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+  <div class="note">Кольори та шрифти умовні (відтінки сірого) — лише для затвердження компонування перед етапом UI-дизайну.<br>Робоча (редагована) версія цього ж вайрфрейму: канвас із коментарями в Claude.</div>
+</div>
+</body>
+</html>

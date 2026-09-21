@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>KUNEBERG — Wireframe (Mobile 390)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f7; --white:#ffffff; --line:#d6d6d6; --line-strong:#a8a8a8;
+  --g-100:#f0f0f0; --g-150:#eaeaea; --g-200:#e2e2e2; --g-300:#d0d0d0;
+  --g-400:#b5b5b5; --g-500:#909090; --g-600:#6b6b6b; --g-700:#4a4a4a;
+  --g-800:#2a2a2a; --ink:#1c1c1c;
+}
+*{box-sizing:border-box;}
+body{margin:0;display:flex;justify-content:center;background:#eae8e2;}
+.page{width:390px;max-width:100%;background:var(--bg);font-family:'Montserrat',Arial,sans-serif;color:var(--ink);position:relative;padding-bottom:76px;}
+a{color:inherit;text-decoration:none;}
+.wrap{padding:0 20px;}
+.section{padding:44px 0;border-bottom:1px dashed var(--line);}
+.section-tag{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g-500);font-weight:700;margin-bottom:10px;}
+.eyebrow{font-size:11.5px;color:var(--g-600);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.03em;}
+.h1{font-size:26px;line-height:1.22;font-weight:800;margin:0 0 14px;letter-spacing:-0.01em;}
+.h2{font-size:21px;line-height:1.28;font-weight:700;margin:0 0 10px;letter-spacing:-0.01em;}
+.h3{font-size:15px;font-weight:700;margin:0 0 5px;}
+.sub{font-size:13.5px;line-height:1.55;color:var(--g-600);margin:0 0 20px;font-weight:400;}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 20px;font-size:12.5px;font-weight:700;border:1px solid var(--g-800);cursor:pointer;letter-spacing:.02em;text-transform:uppercase;width:100%;}
+.btn-primary{background:var(--g-800);color:#fff;}
+.btn-secondary{background:transparent;color:var(--g-800);}
+.cta-row{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;}
+.placeholder{background:var(--g-200);border:1px dashed var(--g-400);display:flex;align-items:center;justify-content:center;color:var(--g-500);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;text-align:center;padding:8px;font-weight:600;}
+.card{background:#fff;border:1px solid var(--line);padding:16px;}
+.stat-num{font-size:22px;font-weight:800;}
+.stat-label{font-size:10.5px;color:var(--g-600);text-transform:uppercase;letter-spacing:.03em;margin-top:3px;line-height:1.3;}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px;padding-top:18px;border-top:1px solid var(--line);}
+.option-row{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;padding:10px 0;border-bottom:1px solid var(--line);}
+.form-field{margin-bottom:14px;}
+.form-field-label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--g-600);margin-bottom:6px;}
+.input-line{height:46px;border:1px solid var(--line-strong);background:#fff;}
+.textarea-box{height:80px;border:1px solid var(--line-strong);background:#fff;}
+.upload-box{border:1px dashed var(--g-400);background:var(--g-100);padding:18px;text-align:center;font-size:12px;color:var(--g-600);margin-bottom:16px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.upload-hint{font-size:10px;color:var(--g-500);}
+.form-note{font-size:11px;color:var(--g-500);text-align:center;margin-top:10px;}
+.icon-circle{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;margin-bottom:10px;background:#fff;flex-shrink:0;}
+.tag-item{display:flex;gap:9px;font-size:12.5px;line-height:1.5;margin-bottom:11px;color:var(--g-700);align-items:flex-start;}
+.tag-num{width:20px;height:20px;border-radius:50%;border:1px solid var(--g-800);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.contact-row{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;padding:12px 0;border-bottom:1px solid var(--line);}
+.faq-item{border-bottom:1px solid var(--line);padding:15px 0;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;gap:14px;}
+.faq-a{font-size:12.5px;color:var(--g-600);line-height:1.6;margin-top:10px;}
+.header{border-bottom:1px solid var(--line-strong);background:#fff;position:sticky;top:0;z-index:10;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 16px;}
+.logo{font-size:16px;font-weight:800;letter-spacing:.02em;}
+.header-icons{display:flex;align-items:center;gap:14px;}
+.icon-btn{width:34px;height:34px;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;}
+.footer{border-top:1px solid var(--line-strong);background:#fff;padding:30px 20px;}
+.footer-nav{display:flex;flex-direction:column;gap:12px;font-size:13px;color:var(--g-600);margin-bottom:20px;}
+.socials{display:flex;gap:10px;margin-bottom:20px;}
+.msg-icon{width:32px;height:32px;border-radius:50%;border:1px solid var(--g-500);display:flex;align-items:center;justify-content:center;}
+.copyright{font-size:10.5px;color:var(--g-500);padding-top:16px;border-top:1px solid var(--line);text-align:center;}
+.carousel{display:flex;gap:12px;overflow-x:auto;margin:0 -20px;padding:0 20px 6px;}
+.carousel .card,.carousel .c-card{flex:0 0 240px;}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:14px;}
+.dot-ind{width:6px;height:6px;border-radius:50%;background:var(--g-300);}
+.dot-ind.active{background:var(--g-700);width:16px;border-radius:3px;}
+.steps-col{display:flex;flex-direction:column;}
+.step-row{display:flex;gap:16px;position:relative;padding-bottom:28px;}
+.step-row:last-child{padding-bottom:0;}
+.step-line{position:absolute;left:19px;top:40px;bottom:0;width:1px;background:var(--line-strong);}
+.step-circle{width:40px;height:40px;border-radius:50%;border:1px solid var(--g-800);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;background:#fff;z-index:1;}
+.banner-section{background:var(--g-800);color:#fff;}
+.banner-section .section-tag{color:#aaa;}
+.banner-section .h2{color:#fff;}
+.banner-section .sub{color:#cfcfcf;}
+.case-tab{border:1px solid var(--line-strong);padding:9px 14px;font-size:12px;font-weight:700;color:var(--g-600);background:#fff;flex-shrink:0;}
+.case-tab.active{background:var(--g-800);color:#fff;border-color:var(--g-800);}
+.slider-arrow{position:absolute;top:95px;width:30px;height:30px;border:1px solid var(--line-strong);background:#fff;display:flex;align-items:center;justify-content:center;}
+.case-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--g-500);margin:16px 0 6px;}
+.case-list div{font-size:13px;line-height:1.7;color:#333;}
+.sticky-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:390px;max-width:100%;border-top:1px solid var(--line-strong);background:#fff;display:flex;align-items:center;gap:10px;padding:12px 16px;z-index:20;}
+.sticky-bar .btn{padding:13px 10px;font-size:11.5px;}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ================= MOBILE HEADER ================= -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">KUNEBERG</div>
+      <div class="header-icons">
+        <div class="icon-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+        <div class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 01 · HERO ================= -->
+  <section style="position:relative;overflow:hidden;">
+    <div class="placeholder" style="position:absolute;inset:0;color:#e8e8e8;">ФОТО – професійна кухня ресторану (фон на всю ширину)</div>
+    <div style="position:absolute;inset:0;background:rgba(20,20,20,.48);"></div>
+    <div class="wrap" style="position:relative;padding:36px 20px 32px;">
+      <div class="section-tag" style="color:#e2e2e2;">01 · HERO</div>
+      <div class="eyebrow" style="color:#e2e2e2;">Виробник з нержавіючої сталі · 24 роки</div>
+      <h1 class="h1" style="color:#fff;">Меблі з нержавіючої сталі під ваші розміри та задачі</h1>
+      <p class="sub" style="color:#eaeaea;">KUNEBERG – виробник професійних меблів з нержавіючої сталі для ресторанів, кафе, барів і харчових виробництв.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary">Отримати прорахунок</button>
+        <button class="btn" style="background:transparent;color:#fff;border-color:#fff;">Отримати консультацію</button>
+      </div>
+      <div class="proof-grid" style="border-top:1px solid rgba(255,255,255,.35);">
+        <div><div class="stat-num" style="color:#fff;">24 роки</div><div class="stat-label" style="color:#dedede;">на ринку</div></div>
+        <div><div class="stat-num" style="color:#fff;">40 000+</div><div class="stat-label" style="color:#dedede;">клієнтів</div></div>
+        <div><div class="stat-num" style="color:#fff;">12 міс.</div><div class="stat-label" style="color:#dedede;">гарантії</div></div>
+        <div><div class="stat-num" style="color:#fff;">Україна</div><div class="stat-label" style="color:#dedede;">доставка</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 · ПРОДУКЦІЯ (carousel) ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">02 · ОСНОВНІ ВИДИ ПРОДУКЦІЇ</div>
+      <h2 class="h2">Обладнання для ключових зон кухні</h2>
+      <p class="sub"><span style="font-size: 15px">Обирайте стандартну конструкцію або замовляйте виріб у потрібних розмірах і комплектації.</span></p>
+    </div>
+    <div class="carousel">
+      <div class="card c-card">
+        <div class="placeholder" style="height:130px;">ФОТО – зонт</div>
+        <h3 class="h3" style="margin-top:10px;">Витяжні зонти</h3>
+        <p class="sub" style="font-size:12px;margin-bottom:8px;">Пристінні та острівні конструкції.</p>
+      </div>
+      <div class="card c-card">
+        <div class="placeholder" style="height:130px;">ФОТО – стіл</div>
+        <h3 class="h3" style="margin-top:10px;">Виробничі столи</h3>
+        <p class="sub" style="font-size:12px;margin-bottom:8px;">З бортами, полицями, підсиленням.</p>
+      </div>
+      <div class="card c-card">
+        <div class="placeholder" style="height:130px;">ФОТО – ванна</div>
+        <h3 class="h3" style="margin-top:10px;">Мийні ванни</h3>
+        <p class="sub" style="font-size:12px;margin-bottom:8px;">Одно- та багатосекційні варіанти.</p>
+      </div>
+      <div class="card c-card">
+        <div class="placeholder" style="height:130px;">ФОТО – станція</div>
+        <h3 class="h3" style="margin-top:10px;">Барні станції</h3>
+        <p class="sub" style="font-size:12px;margin-bottom:8px;">Під планування барної стійки.</p>
+      </div>
+      <div class="card c-card">
+        <div class="placeholder" style="height:130px;">ФОТО – стелаж</div>
+        <h3 class="h3" style="margin-top:10px;">Стелажі</h3>
+        <p class="sub" style="font-size:12px;margin-bottom:8px;">Для зберігання інвентарю.</p>
+      </div>
+      <div class="card c-card">
+        <div class="placeholder" style="height:130px;">ФОТО – нестандарт</div>
+        <h3 class="h3" style="margin-top:10px;">Нестандартні вироби</h3>
+        <p class="sub" style="font-size:12px;margin-bottom:8px;">За кресленням або розмірами.</p>
+      </div>
+    </div>
+    <div class="dots"><div class="dot-ind active"></div><div class="dot-ind"></div><div class="dot-ind"></div><div class="dot-ind"></div><div class="dot-ind"></div><div class="dot-ind"></div></div>
+    <div class="wrap" style="margin-top:22px;">
+      <p class="sub" style="margin-bottom:14px;">Потрібна інша конструкція? Надішліть задачу.</p>
+      <button class="btn btn-primary">Отримати прорахунок</button>
+    </div>
+  </section>
+
+  <!-- ================= 03 · ІНДИВІДУАЛЬНЕ ВИГОТОВЛЕННЯ ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">03 · ІНДИВІДУАЛЬНЕ ВИГОТОВЛЕННЯ</div>
+      <h2 class="h2">Потрібна особлива конфігурація?</h2>
+      <div class="placeholder" style="height:220px;margin-bottom:18px;">ФОТО / КРЕСЛЕННЯ – виріб під замовлення</div>
+      <p class="sub">Ніші, колони, комунікації часто потребують індивідуального рішення. Змінювані параметри:</p>
+      <div class="tag-item"><span class="tag-num">1</span>Розміри – довжина, ширина, висота</div>
+      <div class="tag-item"><span class="tag-num">2</span>Конфігурація – секції, полиці, зони</div>
+      <div class="tag-item"><span class="tag-num">3</span>Борти та поверхні</div>
+      <div class="tag-item"><span class="tag-num">4</span>Мийні чаші – кількість, розташування</div>
+      <div class="tag-item"><span class="tag-num">5</span>Опори – регульовані ніжки</div>
+      <div class="tag-item"><span class="tag-num">6</span>Нестандартні елементи, вирізи</div>
+      <p class="sub" style="margin-top:14px;">Не обов'язково мати креслення – досить розмірів або опису задачі.</p>
+      <button class="btn btn-primary">Надіслати свою задачу</button>
+    </div>
+  </section>
+
+  <!-- ================= 04 · СЕГМЕНТИ (carousel) ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">04 · ОБЛАДНАННЯ ПІД ФОРМАТ ЗАКЛАДУ</div>
+      <h2 class="h2">Під формат вашого закладу</h2>
+    </div>
+    <div class="carousel">
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="1"></rect><path d="M8 7V4h8v3"></path></svg></div><h3 class="h3" style="font-size:13px;">Ресторани, кафе</h3></div>
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M6 3h12l-1 9a5 5 0 0 1-10 0L6 3z"></path><line x1="6" y1="21" x2="18" y2="21"></line><line x1="12" y1="15" x2="12" y2="21"></line></svg></div><h3 class="h3" style="font-size:13px;">Бари, кав'ярні</h3></div>
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><path d="M8 12a4 4 0 0 1 8 0"></path></svg></div><h3 class="h3" style="font-size:13px;">Піцерії, фастфуд</h3></div>
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><rect x="4" y="9" width="16" height="10" rx="1"></rect><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg></div><h3 class="h3" style="font-size:13px;">Стрітфуд, МАФи</h3></div>
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1"></rect><line x1="4" y1="10" x2="20" y2="10"></line><line x1="4" y1="15" x2="20" y2="15"></line></svg></div><h3 class="h3" style="font-size:13px;">Пекарні</h3></div>
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M4 4h16v6H4z"></path><path d="M4 14h16v6H4z"></path></svg></div><h3 class="h3" style="font-size:13px;">Їдальні, харчоблоки</h3></div>
+      <div class="card c-card" style="flex-basis:170px;"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg></div><h3 class="h3" style="font-size:13px;">Харчові виробництва</h3></div>
+    </div>
+    <div class="dots"><div class="dot-ind active"></div><div class="dot-ind"></div><div class="dot-ind"></div></div>
+  </section>
+
+  <!-- ================= 05 · ФОРМА ПРОРАХУНКУ ================= -->
+  <section class="section" style="background:var(--g-100);">
+    <div class="wrap">
+      <div class="section-tag">05 · ПЕРША ФОРМА ПРОРАХУНКУ</div>
+      <h2 class="h2">Отримайте прорахунок вашої конструкції</h2>
+      <p class="sub">Надішліть креслення, розміри, фото або опишіть задачу.</p>
+      <div class="option-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> Прикріпіть креслення</div>
+      <div class="option-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2"><path d="M21 3H3v18h18V3z"></path><path d="M3 9h18M9 21V9"></path></svg> Вкажіть розміри</div>
+      <div class="option-row" style="border-bottom:none;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg> Опишіть задачу</div>
+      <div class="card" style="padding:20px;">
+        <div class="form-field"><span class="form-field-label">Ваше ім'я</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Телефон</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Що потрібно виготовити?</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Розміри / коментар</span><div class="textarea-box"></div></div>
+        <div class="upload-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="1.6"><rect x="3" y="3" width="12" height="16" rx="1"></rect><circle cx="9" cy="8" r="1.5"></circle><path d="M15 8l4-2v12l-4-2"></path></svg>
+          <span>Прикріпити фото або файл</span>
+          <span class="upload-hint">Камера · Галерея · Файли – до 20 МБ</span>
+        </div>
+        <button class="btn btn-primary">Отримати прорахунок</button>
+        <p class="form-note">ТЗ не обов'язкове – досить опису задачі.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 · ВИРОБНИЦТВО (stats + carousel) ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">06 · ПРО ВИРОБНИЦТВО ТА КОМПАНІЮ</div>
+      <h2 class="h2">24 роки виготовляємо меблі для HoReCa</h2>
+      <div class="proof-grid" style="border-top:none;padding-top:0;margin-bottom:18px;">
+        <div><div class="stat-num">24 роки</div><div class="stat-label">досвіду</div></div>
+        <div><div class="stat-num">40 000+</div><div class="stat-label">клієнтів</div></div>
+        <div><div class="stat-num">700–800</div><div class="stat-label">виробів/міс.</div></div>
+        <div><div class="stat-num">Україна</div><div class="stat-label">географія доставки</div></div>
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="placeholder c-card" style="height:130px;">ФОТО – цех</div>
+      <div class="placeholder c-card" style="height:130px;">ФОТО – склад</div>
+      <div class="placeholder c-card" style="height:130px;">ФОТО – завантаження</div>
+      <div class="placeholder c-card" style="height:130px;">ФОТО – готові вироби</div>
+    </div>
+  </section>
+
+  <!-- ================= 07 · ПРОЦЕС (vertical steps) ================= -->
+  <section class="section" style="background:var(--g-100);">
+    <div class="wrap">
+      <div class="section-tag">07 · ЯК ПРОХОДИТЬ ЗАМОВЛЕННЯ</div>
+      <h2 class="h2">Від задачі до готового виробу</h2>
+      <div class="steps-col">
+        <div class="step-row"><div class="step-line"></div><div class="step-circle">01</div><div><h3 class="h3">Розповідаєте, що потрібно</h3><p class="sub" style="margin-bottom:0;">Розміри, креслення, фото або опис задачі.</p></div></div>
+        <div class="step-row"><div class="step-line"></div><div class="step-circle">02</div><div><h3 class="h3">Погоджуємо конструкцію</h3><p class="sub" style="margin-bottom:0;">Визначаємо параметри та комплектацію.</p></div></div>
+        <div class="step-row"><div class="step-line"></div><div class="step-circle">03</div><div><h3 class="h3">Виготовляємо</h3><p class="sub" style="margin-bottom:0;">Від 2 тижнів залежно від обсягу.</p></div></div>
+        <div class="step-row"><div class="step-circle">04</div><div><h3 class="h3">Готуємо до відправлення</h3><p class="sub" style="margin-bottom:0;">Перевірка та доставка по Україні.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 08 · ПОРТФОЛІО (таби + слайдер, без модалки) ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">08 · РЕАЛІЗОВАНІ ПРОЄКТИ</div>
+      <h2 class="h2">Обладнання на реальних об'єктах</h2>
+      <p class="sub">Перемикайте кейси – деталі одразу під фото, без окремого вікна.</p>
+    </div>
+    <div class="carousel">
+      <div class="case-tab active">Кухня ресторану · Київ</div>
+      <div class="case-tab">Барна зона · кав'ярня</div>
+      <div class="case-tab">Харчоблок / їдальня</div>
+    </div>
+    <div class="wrap" style="margin-top:16px;">
+      <div style="position:relative;">
+        <div class="placeholder" style="height:220px;">ФОТО ОБ'ЄКТА – слайд 1 з 5</div>
+        <div class="slider-arrow" style="left:8px;">←</div>
+        <div class="slider-arrow" style="right:8px;">→</div>
+      </div>
+      <div class="dots"><div class="dot-ind active"></div><div class="dot-ind"></div><div class="dot-ind"></div><div class="dot-ind"></div><div class="dot-ind"></div></div>
+      <div class="eyebrow" style="margin-top:18px;">Реалізований проєкт</div>
+      <h3 class="h2" style="font-size:18px;">Кухня ресторану · Київ</h3>
+      <div class="case-label">Задача</div>
+      <p class="sub" style="margin-bottom:0;">Організувати основні робочі зони з урахуванням наявного обладнання та планування приміщення.</p>
+      <div class="case-label">Що виготовлено</div>
+      <div class="case-list">
+        <div>– Виробничі столи</div>
+        <div>– Мийна ванна</div>
+        <div>– Витяжний зонт</div>
+        <div>– Стелажі / полиці</div>
+      </div>
+      <button class="btn btn-secondary" style="margin-top:18px;">Обговорити подібний проєкт</button>
+    </div>
+  </section>
+
+  <!-- ================= 09 · ЯКІСТЬ ================= -->
+  <section class="section" style="background:var(--g-100);">
+    <div class="wrap">
+      <div class="section-tag">09 · ЯКІСТЬ, МАТЕРІАЛИ, ГАРАНТІЯ</div>
+      <h2 class="h2">Якість, за яку ми відповідаємо</h2>
+      <div style="display:flex;gap:12px;margin-bottom:16px;"><div class="icon-circle" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg></div><div><h3 class="h3">Сталь AISI 201/304/430</h3><p class="sub" style="margin-bottom:0;">Марка залежить від типу виробу.</p></div></div>
+      <div style="display:flex;gap:12px;margin-bottom:16px;"><div class="icon-circle" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M3 3h18v18H3z"></path><path d="M3 9h18M9 21V9"></path></svg></div><div><h3 class="h3">Продумана конструкція</h3><p class="sub" style="margin-bottom:0;">Погоджується до запуску у виробництво.</p></div></div>
+      <div style="display:flex;gap:12px;margin-bottom:16px;"><div class="icon-circle" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div><h3 class="h3">Контроль перед відвантаженням</h3><p class="sub" style="margin-bottom:0;">Перевірка відповідності комплектації.</p></div></div>
+      <div style="display:flex;gap:12px;"><div class="icon-circle" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"></path></svg></div><div><h3 class="h3">12 місяців гарантії</h3><p class="sub" style="margin-bottom:0;">Гарантія виробника KUNEBERG.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ================= 10 · ТЕХНОЛОГІЧНИЙ ПРОЄКТ ================= -->
+  <section class="section banner-section" style="padding:40px 0;">
+    <div class="wrap">
+      <div class="section-tag">10 · ТЕХНОЛОГІЧНИЙ ПРОЄКТ</div>
+      <h2 class="h2">Комплексне обладнання кухні? Почніть із техпроєкту</h2>
+      <p class="sub" style="margin-bottom:20px;">Вартість проєкту віднімається від вартості обладнання при замовленні.</p>
+      <button class="btn" style="background:#fff;color:#1c1c1c;border-color:#fff;">Обговорити проєкт</button>
+    </div>
+  </section>
+
+  <!-- ================= 11 · ЧОМУ KUNEBERG ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">11 · ЧОМУ KUNEBERG</div>
+      <h2 class="h2">Виробниче рішення під вашу задачу</h2>
+      <div style="display:flex;gap:12px;margin-bottom:14px;"><div class="icon-circle" style="width:36px;height:36px;margin-bottom:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg></div><h3 class="h3" style="align-self:center;">Виготовляємо самі</h3></div>
+      <div style="display:flex;gap:12px;margin-bottom:14px;"><div class="icon-circle" style="width:36px;height:36px;margin-bottom:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M3 3h18v18H3z"></path><path d="M3 9h18M9 21V9"></path></svg></div><h3 class="h3" style="align-self:center;">Під ваш простір</h3></div>
+      <div style="display:flex;gap:12px;margin-bottom:14px;"><div class="icon-circle" style="width:36px;height:36px;margin-bottom:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg></div><h3 class="h3" style="align-self:center;">24 роки досвіду</h3></div>
+      <div style="display:flex;gap:12px;margin-bottom:14px;"><div class="icon-circle" style="width:36px;height:36px;margin-bottom:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="1"></rect><path d="M8 7V4h8v3"></path></svg></div><h3 class="h3" style="align-self:center;">Виробнича потужність</h3></div>
+      <div style="display:flex;gap:12px;"><div class="icon-circle" style="width:36px;height:36px;margin-bottom:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6"><path d="M3 12h18M12 3v18"></path></svg></div><h3 class="h3" style="align-self:center;">Доставка по Україні</h3></div>
+    </div>
+  </section>
+
+  <!-- ================= 12 · ВІДГУКИ (carousel) ================= -->
+  <section class="section" style="background:var(--g-100);">
+    <div class="wrap">
+      <div class="section-tag">12 · ВІДГУКИ</div>
+      <h2 class="h2">Що говорять клієнти KUNEBERG</h2>
+    </div>
+    <div class="carousel">
+      <div class="card c-card" style="flex-basis:270px;">
+        <div class="placeholder" style="height:44px;width:44px;border-radius:50%;font-size:8px;margin-bottom:12px;">ФОТО</div>
+        <p class="sub" style="font-size:12.5px;">«Заповнюється реальною цитатою клієнта – конкретний результат співпраці.»</p>
+        <div style="font-weight:700;font-size:12.5px;">Ім'я Прізвище</div>
+        <div class="sub" style="margin:2px 0 0;">Назва закладу, місто</div>
+      </div>
+      <div class="card c-card" style="flex-basis:270px;">
+        <div class="placeholder" style="height:44px;width:44px;border-radius:50%;font-size:8px;margin-bottom:12px;">ФОТО</div>
+        <p class="sub" style="font-size:12.5px;">«Заповнюється реальною цитатою клієнта – конкретний результат співпраці.»</p>
+        <div style="font-weight:700;font-size:12.5px;">Ім'я Прізвище</div>
+        <div class="sub" style="margin:2px 0 0;">Назва закладу, місто</div>
+      </div>
+    </div>
+    <div class="dots"><div class="dot-ind active"></div><div class="dot-ind"></div></div>
+  </section>
+
+  <!-- ================= 13 · FAQ ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">13 · FAQ</div>
+      <h2 class="h2">Часті запитання</h2>
+      <div class="faq-item">
+        <div class="faq-q">Чи можна виготовити за моїми розмірами?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></div>
+        <p class="faq-a">Так. Можна змінювати довжину, ширину, висоту, секції, полиці, борти, опори та інші параметри.</p>
+      </div>
+      <div class="faq-item"><div class="faq-q">Що надіслати для прорахунку?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item"><div class="faq-q">Немає креслення – що робити?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item"><div class="faq-q">Який термін виготовлення?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item"><div class="faq-q">Чи доставляєте по Україні?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item"><div class="faq-q">Яку сталь використовуєте?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item"><div class="faq-q">Чи можна замовити техпроєкт?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item"><div class="faq-q">Чи виконуєте монтаж?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+      <div class="faq-item" style="border-bottom:none;"><div class="faq-q">Яка гарантія на продукцію?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
+    </div>
+  </section>
+
+  <!-- ================= 14 · ФІНАЛЬНИЙ CTA ================= -->
+  <section class="section" style="background:var(--g-200);padding:48px 0;">
+    <div class="wrap">
+      <div class="section-tag">14 · ФІНАЛЬНИЙ CTA</div>
+      <h2 class="h2">Розкажіть, що потрібно виготовити</h2>
+      <p class="sub">Прикріпіть креслення, фото або просто опишіть задачу – розрахуємо вартість.</p>
+      <div class="card" style="padding:18px;">
+        <div class="form-field"><span class="form-field-label">Ваше ім'я</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Телефон</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Розміри / коментар</span><div class="textarea-box" style="height:60px;"></div></div>
+        <div class="upload-box" style="padding:12px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="1.6"><rect x="3" y="3" width="12" height="16" rx="1"></rect><circle cx="9" cy="8" r="1.5"></circle><path d="M15 8l4-2v12l-4-2"></path></svg>
+          <span>Прикріпити фото або файл</span>
+        </div>
+        <button class="btn btn-primary">Надіслати задачу на прорахунок</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 15 · КОНТАКТИ + МАПА ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-tag">15 · КОНТАКТИ</div>
+      <h2 class="h2">Зв'яжіться з KUNEBERG</h2>
+      <div class="contact-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +38 (067) 899-20-00</div>
+      <div class="contact-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +38 (095) 388-30-00</div>
+      <div class="contact-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M4 4h16v16H4z"></path><path d="M4 4l8 8 8-8"></path></svg> zaproskuneberg@gmail.com</div>
+      <div class="contact-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg> Telegram / Viber</div>
+      <div class="contact-row" style="border-bottom:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Київ і Київська обл. · доставка по Україні</div>
+      <div class="placeholder" style="height:220px;margin-top:16px;">GOOGLE MAP – геомітка виробництва / офісу</div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="logo" style="margin-bottom:18px;">KUNEBERG</div>
+    <nav class="footer-nav"><a>Продукція</a><a>Під замовлення</a><a>Наші роботи</a><a>Виробництво</a><a>FAQ</a><a>Контакти</a></nav>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="socials" style="margin-bottom:0;">
+        <div class="msg-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></div>
+        <div class="msg-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+        <div class="msg-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+        <div class="msg-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+      </div>
+      <div style="font-size:11px;color:var(--g-500);font-weight:700;border:1px solid var(--line);padding:5px 9px;">UA / RU</div>
+    </div>
+    <div class="copyright">© KUNEBERG – меблі з нержавіючої сталі для HoReCa</div>
+  </footer>
+
+</div>
+
+<!-- ================= STICKY BOTTOM CTA (справжній position:fixed) ================= -->
+<div class="sticky-bar">
+  <div class="icon-btn" style="width:40px;height:40px;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+  <div class="icon-btn" style="width:40px;height:40px;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+  <button class="btn btn-primary" style="width:auto;flex:1;">Отримати прорахунок</button>
+</div>
+
+</body>
+</html>

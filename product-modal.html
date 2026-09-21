@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>KUNEBERG — Wireframe (Modal · Товар)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0f0f0; --line:#d6d6d6; --line-strong:#a8a8a8;
+  --g-100:#f0f0f0; --g-200:#e2e2e2; --g-400:#b5b5b5; --g-500:#909090; --g-600:#6b6b6b; --g-800:#2a2a2a; --ink:#1c1c1c;
+}
+*{box-sizing:border-box;}
+body{margin:0;}
+.stage{min-height:100vh;background:var(--bg);font-family:'Montserrat',Arial,sans-serif;color:var(--ink);display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;}
+.modal{width:100%;max-width:900px;background:#fff;border:1px solid var(--line-strong);position:relative;}
+.modal-label{position:absolute;top:-32px;left:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--g-500);font-weight:700;}
+.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.modal-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.gallery{padding:28px;border-right:1px dashed var(--line);}
+.placeholder{background:var(--g-200);border:1px dashed var(--g-400);display:flex;align-items:center;justify-content:center;color:var(--g-500);font-size:11px;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:10px;font-weight:600;}
+.thumbs{display:flex;gap:8px;margin-top:10px;}
+.thumb{width:64px;height:48px;flex-shrink:0;}
+.content{padding:32px 32px 28px;}
+.eyebrow{font-size:11.5px;color:var(--g-500);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
+.h2{font-size:22px;font-weight:800;margin:0 0 10px;}
+.sub{font-size:13.5px;line-height:1.55;color:var(--g-600);margin:0 0 18px;}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.chip{border:1px solid var(--line-strong);padding:6px 12px;font-size:12px;font-weight:600;}
+.divider{border-top:1px solid var(--line);margin:20px 0;}
+.form-field{margin-bottom:12px;}
+.form-field-label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--g-600);margin-bottom:5px;}
+.input-line{height:38px;border:1px solid var(--line-strong);background:#fff;}
+.textarea-box{height:56px;border:1px solid var(--line-strong);background:#fff;}
+.upload-mini{border:1px dashed var(--g-400);background:var(--g-100);padding:10px;text-align:center;font-size:11px;color:var(--g-600);margin-bottom:12px;}
+.btn{display:flex;align-items:center;justify-content:center;padding:14px;font-size:12.5px;font-weight:700;border:1px solid var(--g-800);background:var(--g-800);color:#fff;text-transform:uppercase;letter-spacing:.02em;}
+@media (max-width:640px){.modal-inner{grid-template-columns:1fr;}.gallery{border-right:none;border-bottom:1px dashed var(--line);}}
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="modal">
+    <div class="modal-label">МОДАЛЬНЕ ВІКНО ТОВАРУ – відкривається кліком по картці з розділу «02 · Основні види продукції»</div>
+    <div class="modal-close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+    <div class="modal-inner">
+      <div class="gallery">
+        <div class="placeholder" style="height:340px;">ФОТО – виробничий стіл (велике зображення)</div>
+        <div class="thumbs">
+          <div class="placeholder thumb">1</div>
+          <div class="placeholder thumb">2</div>
+          <div class="placeholder thumb">3</div>
+          <div class="placeholder thumb">4</div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">Основні види продукції</div>
+        <h2 class="h2">Виробничі столи</h2>
+        <p class="sub">Робочі столи з бортами, полицями, підсиленням та іншими опціями – під потрібну довжину, ширину й висоту. Виготовляються за стандартними або індивідуальними розмірами.</p>
+        <div class="chip-row">
+          <div class="chip">Довжина / ширина / висота</div>
+          <div class="chip">Борти</div>
+          <div class="chip">Полиці</div>
+          <div class="chip">Підсилення каркасу</div>
+          <div class="chip">Регульовані опори</div>
+        </div>
+        <div class="divider"></div>
+        <div class="eyebrow" style="margin-bottom:12px;">Залишити заявку на цей виріб</div>
+        <div class="form-field"><span class="form-field-label">Ім'я</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Телефон</span><div class="input-line"></div></div>
+        <div class="form-field"><span class="form-field-label">Розміри / коментар до виробу</span><div class="textarea-box"></div></div>
+        <div class="upload-mini">Прикріпити фото або файл (необов'язково)</div>
+        <button class="btn">Отримати прорахунок</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
