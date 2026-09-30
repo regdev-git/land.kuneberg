@@ -10,6 +10,7 @@ Grayscale only, structural placeholders, Montserrat — no final visual design.
 - `desktop.html` — full desktop wireframe, 1440px, all 15 sections
 - `mobile.html` — mobile wireframe, 390px, adaptive carousels + fixed bottom CTA
 - `product-modal.html` — product card modal (opens from section 02 on the live design)
+- `product.html` — standalone product page on its own URL: name, photo, description, price ("from", UAH), stock badge, "Order" / "Get a consultation" CTAs — field set compatible with a future Google Merchant Center feed
 - `mobile-menu.html` — mobile hamburger menu overlay
 
 ## Source of truth
