@@ -16,6 +16,11 @@ p.sub{font-size:15px;line-height:1.6;color:var(--g-600);margin:0 0 40px;max-widt
 .list{display:flex;flex-direction:column;gap:14px;}
 .item{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line-strong);background:#fff;padding:20px 24px;text-decoration:none;color:var(--ink);}
 .item:hover{border-color:var(--g-800);}
+.item.featured{border-color:#d85028;border-width:2px;}
+.item.featured:hover{border-color:#b53f1d;}
+.item.featured .item-title{color:#d85028;}
+.section-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g-500);font-weight:700;margin:28px 0 10px;}
+.section-label:first-of-type{margin-top:0;}
 .item-title{font-size:16px;font-weight:700;margin-bottom:4px;}
 .item-desc{font-size:13px;color:var(--g-600);}
 .arrow{font-size:18px;color:var(--g-500);flex-shrink:0;}
@@ -28,6 +33,14 @@ p.sub{font-size:15px;line-height:1.6;color:var(--g-600);margin:0 0 40px;max-widt
   <h1>KUNEBERG — Landing Page</h1>
   <p class="sub">Статична версія вайрфрейму B2B-лендингу для HoReCa. Структура, ієрархія та логіка конверсії — без фінального візуального дизайну.</p>
   <div class="list">
+    <a class="item featured" href="design/index.html">
+      <div>
+        <div class="item-title">Візуальний дизайн лендингу</div>
+        <div class="item-desc">Фінальний UI: фото, кольори, попапи продукції та кейсів — на основі вайрфрейму нижче</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+    <div class="section-label">Low-fidelity wireframe</div>
     <a class="item" href="desktop.html">
       <div>
         <div class="item-title">Desktop 1440</div>

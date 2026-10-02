@@ -1,18 +1,17 @@
-# KUNEBERG — Landing Page Wireframe (static)
+# KUNEBERG — Landing Page (static)
 
-Low-fidelity UX wireframe of the KUNEBERG B2B landing page (stainless-steel HoReCa kitchen equipment manufacturer), exported as a static, self-contained HTML site for GitHub Pages.
-
-Grayscale only, structural placeholders, Montserrat — no final visual design.
+Static, self-contained HTML site for GitHub Pages: the KUNEBERG B2B landing page (stainless-steel HoReCa kitchen equipment manufacturer), in both its final visual design and its original low-fidelity UX wireframe.
 
 ## Pages
 
 - `index.html` — navigation
-- `desktop.html` — full desktop wireframe, 1440px, all 15 sections
-- `mobile.html` — mobile wireframe, 390px, adaptive carousels + fixed bottom CTA
-- `product-modal.html` — product card modal (opens from section 02 on the live design)
-- `product.html` — standalone product page on its own URL: name, photo, description, price ("from", UAH), stock badge, "Order" / "Get a consultation" CTAs — field set compatible with a future Google Merchant Center feed
-- `mobile-menu.html` — mobile hamburger menu overlay
+- `design/index.html` — **final visual design**: full desktop layout, real photos, brand colors, product and case popups, responsive
+- `desktop.html` — wireframe, full desktop, 1440px, all 15 sections (grayscale, structural placeholders)
+- `mobile.html` — wireframe, mobile, 390px, adaptive carousels + fixed bottom CTA
+- `product-modal.html` — wireframe, product card modal (opens from section 02 on the live design)
+- `product.html` — wireframe, standalone product page on its own URL: name, photo, description, price ("from", UAH), stock badge, "Order" / "Get a consultation" CTAs — field set compatible with a future Google Merchant Center feed
+- `mobile-menu.html` — wireframe, mobile hamburger menu overlay
 
 ## Source of truth
 
-This is a static export. The editable, commentable version (Claude Design canvas) is published separately as a Claude Artifact.
+These are static exports. The editable, commentable versions are published separately as Claude Artifacts (visual design and wireframe each have their own).

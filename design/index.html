@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>KUNEBERG Landing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#191715; --ink-soft:#4a453f; --muted:#726c63;
+  --paper:#f7f5f2; --white:#ffffff;
+  --line:#e7e3dc; --line-strong:#d8d2c7;
+  --dark:#16140f; --dark-soft:#242019; --dark-line:#3a352b;
+  --orange:#d85028; --orange-dark:#b53f1d; --orange-tint:#fbe9e2;
+  --r-btn:999px; --r-card:20px; --r-img:16px; --r-sm:10px;
+  --shadow-card:0 18px 40px -24px rgba(25,20,15,.35);
+  --shadow-pop:0 30px 70px -25px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px;}
+.section{padding:96px 0;}
+.section-tight{padding:72px 0;}
+.eyebrow{font-size:13px;color:var(--orange);font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:.08em;}
+.h1{font-size:46px;line-height:1.15;font-weight:800;margin:0 0 22px;letter-spacing:-0.015em;}
+.h2{font-size:32px;line-height:1.22;font-weight:800;margin:0 0 14px;letter-spacing:-0.012em;}
+.h2 em{color:var(--orange);font-style:normal;}
+.h3{font-size:18px;font-weight:700;margin:0 0 8px;}
+.sub{font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 32px;max-width:640px;font-weight:400;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 30px;font-size:13.5px;font-weight:700;border-radius:var(--r-btn);border:1.5px solid transparent;cursor:pointer;letter-spacing:.01em;white-space:nowrap;transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 14px 30px -12px rgba(216,80,40,.55);}
+.btn-primary:hover{background:var(--orange-dark);}
+.btn-outline-dark{background:transparent;color:var(--ink);border-color:var(--ink);}
+.btn-outline-dark:hover{background:var(--ink);color:#fff;}
+.btn-outline-light{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.75);backdrop-filter:blur(2px);}
+.btn-outline-light:hover{background:#fff;color:var(--ink);}
+.btn-white{background:#fff;color:var(--ink);}
+.btn-white:hover{background:var(--orange);color:#fff;}
+.btn-sm{padding:11px 20px;font-size:12.5px;}
+.btn-block{width:100%;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.link-arrow{font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px;color:var(--ink);}
+.link-arrow svg{transition:transform .15s ease;}
+.link-arrow:hover svg{transform:translateX(3px);}
+
+/* header */
+.header{position:sticky;top:0;z-index:40;background:rgba(247,245,242,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;}
+.header .wrap{max-width:1440px;}
+.header.scrolled{border-color:var(--line);box-shadow:0 8px 24px -20px rgba(0,0,0,.4);}
+@media (min-width:681px){
+  .header{background:linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.32));backdrop-filter:blur(22px) saturate(220%);-webkit-backdrop-filter:blur(22px) saturate(220%);border-bottom:1px solid rgba(255,255,255,.45);}
+  .header.scrolled{border-bottom-color:transparent;box-shadow:0 12px 32px -20px rgba(25,20,15,.28);}
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:82px;gap:24px;transition:height .25s ease;}
+.header.scrolled .header-inner{height:68px;}
+.logo-img{height:26px;width:auto;flex-shrink:0;transition:height .25s ease;}
+.header.scrolled .logo-img{height:22px;}
+.nav{display:flex;gap:26px;font-size:13.5px;font-weight:600;color:var(--ink-soft);flex-shrink:0;}
+.nav a:hover{color:var(--orange);}
+.header-right{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+.phone{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:7px;white-space:nowrap;}
+.messengers{display:flex;gap:8px;}
+.msg-icon{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-soft);transition:.15s;}
+.msg-icon:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+.lang{font-size:12px;color:var(--muted);font-weight:700;border:1px solid var(--line-strong);border-radius:var(--r-btn);padding:7px 12px;white-space:nowrap;}
+.burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:#111;}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg, rgba(10,9,7,.88) 0%, rgba(10,9,7,.68) 32%, rgba(10,9,7,.34) 60%, rgba(10,9,7,.08) 100%);}
+.hero-inner{position:relative;padding:78px 0 150px;}
+.hero-content{max-width:640px;}
+.hero .h1{color:#fff;}
+.hero .sub{color:#e4e1db;}
+.stat-bar-wrap{position:relative;z-index:5;margin-top:-192px;margin-bottom:56px;}
+.stat-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.stat-item{background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 20px 40px -16px rgba(15,12,8,.32);display:flex;align-items:center;gap:16px;}
+.stat-icon{width:56px;height:56px;border-radius:50%;background:var(--orange-tint);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.stat-icon svg{width:24px;height:24px;}
+.stat-heading{font-size:16.5px;font-weight:800;line-height:1.3;margin-bottom:6px;}
+.stat-num{display:block;}
+.stat-label{display:block;}
+.stat-desc{font-size:12px;color:var(--muted);line-height:1.4;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}
+
+/* cards / grid */
+.grid{display:grid;gap:24px;}
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-5{grid-template-columns:repeat(5,1fr);gap:18px;}
+.grid-7{grid-template-columns:repeat(4,1fr);}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:24px;transition:box-shadow .2s ease, transform .2s ease;}
+.card-img-frame{background:#fff;border-radius:var(--r-img);height:190px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:20px;}
+.card-img-frame img{height:100%;width:100%;object-fit:contain;transition:transform .7s ease;}
+.card-product:hover .card-img-frame img{transform:scale(1.07);}
+.card-text{font-size:13.8px;color:var(--muted);line-height:1.55;margin:8px 0 14px;}
+
+/* icon circle */
+.icon-circle{width:52px;height:52px;border-radius:50%;background:var(--orange-tint);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--orange);flex-shrink:0;}
+.icon-circle svg{width:22px;height:22px;}
+.icon-circle.sm{width:44px;height:44px;}
+.icon-circle.sm svg{width:18px;height:18px;}
+
+/* numbered tags (block 3) */
+.tag-item{display:flex;gap:12px;font-size:14px;line-height:1.5;margin-bottom:14px;color:var(--ink-soft);align-items:flex-start;}
+.tag-num{width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.rounded-photo{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);}
+.rounded-photo img{width:100%;height:100%;object-fit:cover;}
+
+/* block4 segment tiles */
+.segments-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;}
+.segment-tile{position:relative;border-radius:var(--r-img);overflow:hidden;box-shadow:var(--shadow-card);cursor:default;grid-column:span 4;aspect-ratio:4/3;}
+.segment-tile.sq{grid-column:span 3;aspect-ratio:1/1;}
+.segment-tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.segment-tile:hover img{transform:scale(1.06);}
+.segment-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(10,9,7,.85) 100%);}
+.segment-label{position:absolute;left:18px;right:18px;bottom:16px;color:#fff;}
+.segment-title{font-size:14.5px;font-weight:700;line-height:1.3;}
+.segment-desc{font-size:12.5px;font-weight:400;color:rgba(255,255,255,.8);line-height:1.45;margin-top:4px;max-width:320px;}
+
+/* section variants */
+.section-paper{background:var(--paper);}
+.section-white{background:var(--white);}
+.section-dark{background:var(--dark);color:#fff;}
+.tech-banner{position:relative;overflow:hidden;background:var(--dark);color:#fff;}
+.tech-banner .eyebrow{color:#f0c9ba;}
+.tech-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.tech-scrim{position:absolute;inset:0;background:linear-gradient(100deg, rgba(10,9,7,.74) 10%, rgba(10,9,7,.5) 60%, rgba(10,9,7,.62) 100%);}
+.section-dark .h2{color:#fff;}
+.section-dark .sub{color:#cfc9be;}
+.section-dark .eyebrow{color:#f0c9ba;}
+.divider{border-bottom:1px solid var(--line);}
+
+/* form */
+.form-card{background:#fff;border-radius:var(--r-card);padding:36px;box-shadow:var(--shadow-card);border:1px solid var(--line);}
+.form-field{margin-bottom:18px;}
+.form-field-label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:8px;}
+.input-line{height:48px;width:100%;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:#fff;padding:0 16px;font-family:inherit;font-size:14px;}
+.input-line:focus, .textarea-box:focus{outline:none;border-color:var(--orange);}
+.textarea-box{width:100%;min-height:96px;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:#fff;padding:12px 16px;font-family:inherit;font-size:14px;resize:vertical;}
+.upload-box{border:1.5px dashed var(--line-strong);background:var(--paper);border-radius:var(--r-sm);padding:22px;text-align:center;font-size:13px;color:var(--muted);margin-bottom:20px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;}
+.upload-box:hover{border-color:var(--orange);color:var(--orange);}
+.upload-hint{font-size:11.5px;color:#a29c8f;}
+.form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;}
+.option-row{display:flex;align-items:center;gap:14px;font-size:14.5px;font-weight:600;padding:16px 0;border-bottom:1px solid var(--line);}
+.calc-sticky-col{position:sticky;top:110px;align-self:start;}
+.custom-sticky-col{position:sticky;top:110px;}
+.option-row svg{flex-shrink:0;}
+.option-row:last-child{border-bottom:none;}
+
+/* steps */
+.steps-row{display:grid;grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr;align-items:start;gap:0;}
+.step-arrow{display:flex;align-items:center;justify-content:center;padding-top:100px;color:var(--line-strong);}
+.step-photo{border-radius:var(--r-img);overflow:hidden;height:180px;margin-bottom:18px;box-shadow:var(--shadow-card);}
+.step-photo img{width:100%;height:100%;object-fit:cover;}
+.step-num{font-size:12px;font-weight:800;color:var(--orange);letter-spacing:.08em;margin-bottom:10px;}
+
+/* cases */
+.case-tabs{display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap;}
+.case-tab{border:1.5px solid var(--line-strong);border-radius:var(--r-btn);padding:11px 20px;font-size:12.8px;font-weight:700;color:var(--ink-soft);background:#fff;cursor:pointer;transition:.15s;}
+.case-tab:hover{border-color:var(--ink);}
+.case-tab.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.case-layout{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:start;}
+.case-slider{position:relative;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);height:460px;background:#eee;cursor:zoom-in;}
+.case-zoom-hint{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -8px rgba(0,0,0,.4);z-index:2;pointer-events:none;}
+.case-slide{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;}
+.case-slide.active{opacity:1;}
+.case-slide img{width:100%;height:100%;object-fit:cover;background:#eee;}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,0,0,.4);z-index:2;}
+.slider-arrow:hover{background:#fff;}
+.slider-arrow.prev{left:16px;}
+.slider-arrow.next{right:16px;}
+.dots{position:absolute;bottom:16px;left:0;right:0;display:flex;gap:7px;justify-content:center;z-index:2;}
+.dot-ind{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);}
+.dot-ind.active{background:#fff;}
+.case-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 10px;}
+.case-list div{font-size:14px;line-height:1.85;color:var(--ink-soft);display:flex;gap:10px;}
+.case-list div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);margin-top:8px;flex-shrink:0;}
+
+/* quality block 9 */
+.material-photo{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:16/5;box-shadow:var(--shadow-card);}
+.material-photo img{width:100%;height:100%;object-fit:cover;}
+.material-badge{position:absolute;left:14px;bottom:14px;display:inline-block;width:auto;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:var(--r-btn);padding:9px 16px;font-size:11.5px;font-weight:700;color:var(--ink);box-shadow:0 10px 28px -10px rgba(0,0,0,.35);white-space:nowrap;}
+.material-badge strong{color:var(--orange-dark);}
+
+/* testimonials */
+.avatar-ph{width:54px;height:54px;border-radius:50%;background:var(--orange-tint);color:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-bottom:18px;}
+
+/* faq */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:15.5px;font-weight:700;gap:20px;padding:22px 0;cursor:pointer;}
+.faq-q svg{flex-shrink:0;transition:transform .2s ease;color:var(--muted);}
+.faq-item.open .faq-q svg{transform:rotate(180deg);color:var(--orange);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.65;max-width:700px;max-height:0;overflow:hidden;transition:max-height .25s ease, padding .25s ease;}
+.faq-item.open .faq-a{max-height:220px;padding-bottom:22px;}
+
+/* contacts */
+.contact-row{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:600;padding:13px 0;border-bottom:1px solid var(--line);}
+.contact-row svg{flex-shrink:0;color:var(--orange);}
+.contact-row:last-of-type{border-bottom:none;}
+.delivery-badge{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px 18px;background:var(--orange-tint);border-radius:var(--r-sm);color:var(--orange-dark);}
+.map-placeholder{height:320px;border-radius:var(--r-card);background:linear-gradient(135deg,#efece6,#e2ddd3);border:1px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;text-align:center;}
+
+/* footer */
+.footer{background:var(--dark);color:#cfc9be;padding:56px 0 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:32px;border-bottom:1px solid var(--dark-line);flex-wrap:wrap;gap:24px;}
+.footer-nav{display:flex;gap:24px;font-size:13.5px;flex-wrap:wrap;}
+.footer-nav a:hover{color:#fff;}
+.socials{display:flex;gap:10px;}
+.footer .msg-icon{border-color:var(--dark-line);color:#cfc9be;}
+.footer .lang{border-color:var(--dark-line);color:#cfc9be;}
+.copyright{font-size:12px;color:#8b8579;padding:22px 0;text-align:center;}
+.footer-logo{height:24px;filter:invert(1) brightness(1.6);}
+
+/* modal (product popup) */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,13,10,.66);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:100;padding:28px;}
+.modal-overlay.open{display:flex;}
+.lightbox-inner{position:relative;max-width:1200px;width:100%;max-height:88vh;display:flex;align-items:center;justify-content:center;}
+.lightbox-inner img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:var(--shadow-pop);}
+.lightbox-inner .modal-close{top:-52px;right:0;background:rgba(255,255,255,.92);}
+.modal{background:#fff;border-radius:26px;max-width:980px;width:100%;max-height:88vh;overflow:auto;box-shadow:var(--shadow-pop);display:grid;grid-template-columns:1.1fr 0.9fr;position:relative;}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:var(--paper);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;}
+.modal-close:hover{background:var(--ink);color:#fff;}
+.modal-gallery{position:relative;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:30px;min-height:380px;}
+.modal-gallery img{max-height:380px;object-fit:contain;}
+.modal-info{padding:44px 40px;}
+.modal-info .eyebrow{margin-bottom:10px;}
+.modal-info h3{font-size:26px;font-weight:800;margin:0 0 16px;}
+.modal-info p{font-size:14.5px;color:var(--muted);line-height:1.65;margin:0 0 24px;}
+.modal-counter{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:12px;color:var(--muted);font-weight:700;}
+
+@media (max-width:1380px){
+  .header-right .phone, .header-right .messengers{display:none;}
+}
+@media (max-width:980px){
+  .grid-3, .grid-4, .grid-7{grid-template-columns:repeat(2,1fr);}
+  .grid-5{grid-template-columns:repeat(3,1fr);}
+  .segments-grid{grid-template-columns:repeat(2,1fr);}
+  .segments-grid .segment-tile{grid-column:span 1;aspect-ratio:4/3;}
+  .hero-content{max-width:100%;}
+  .stat-bar{grid-template-columns:repeat(2,1fr);}
+  .case-layout{grid-template-columns:1fr;}
+  .case-slider{height:360px;}
+  .modal{grid-template-columns:1fr;max-height:92vh;}
+  .modal-gallery{min-height:280px;}
+  .steps-row{grid-template-columns:1fr;}
+  .step-arrow{display:none;}
+}
+@media (max-width:680px){
+  .calc-sticky-col{position:static;}
+  .custom-sticky-col{position:static;}
+  .nav, .header-right .phone, .header-right .messengers, .header-right .lang{display:none;}
+  .burger{display:flex;}
+  .h1{font-size:32px;}
+  .h2{font-size:25px;}
+  .section{padding:64px 0;}
+  .grid-2, .grid-3, .grid-4, .grid-5, .grid-7, .segments-grid{grid-template-columns:1fr;}
+  .material-photo{aspect-ratio:16/9;}
+  .material-badge{right:14px;white-space:normal;font-size:11px;}
+  .stat-bar{grid-template-columns:1fr 1fr;gap:14px;}
+  .stat-item{padding:16px;gap:12px;}
+  .stat-icon{width:44px;height:44px;}
+  .stat-icon svg{width:19px;height:19px;}
+  .stat-bar-wrap{margin-top:-124px;margin-bottom:36px;}
+  .hero-inner{padding-bottom:110px;}
+  .form-card{padding:24px;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="siteHeader">
+  <div class="wrap header-inner">
+    <img class="logo-img" src="images/logo-mono.webp" alt="KUNEBERG">
+    <nav class="nav">
+      <a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang">UA / RU</div>
+      <div class="phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        +38 (067) 899-20-00
+      </div>
+      <div class="messengers">
+        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+      </div>
+      <button class="btn btn-primary btn-sm">Отримати прорахунок</button>
+      <div class="burger" id="burgerBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 · HERO ================= -->
+<section class="hero">
+  <img class="hero-bg" src="images/hero.webp" alt="">
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <h1 class="h1">Меблі з нержавіючої сталі для професійних кухонь – під ваші розміри та задачі</h1>
+      <p class="sub">KUNEBERG – український виробник професійних меблів та технологічних виробів з нержавіючої сталі для ресторанів, кафе, барів, їдалень, пекарень і харчових виробництв.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary">Отримати прорахунок</button>
+        <button class="btn btn-outline-light">Отримати консультацію</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Сюди буде вставлено скрипт стороннього віджета (дзвінок / месенджери) -->
+
+<!-- ================= 02 · ОСНОВНІ ВИДИ ПРОДУКЦІЇ ================= -->
+<section class="section section-white" id="products">
+  <div class="wrap stat-bar-wrap">
+    <div class="stat-bar">
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg></div>
+        <div><div class="stat-heading"><span class="stat-num">24 роки</span> <span class="stat-label">на ринку</span></div><div class="stat-desc">Досвід, якому довіряють клієнти</div></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <div><div class="stat-heading"><span class="stat-num">40 000+</span> <span class="stat-label">клієнтів</span></div><div class="stat-desc">Ресторани, кафе, пекарні по всій Україні</div></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"></path></svg></div>
+        <div><div class="stat-heading"><span class="stat-num">12 місяців</span> <span class="stat-label">гарантії</span></div><div class="stat-desc" lang="uk">Гарантійне та післягарантійне обслуговування</div></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></div>
+        <div><div class="stat-heading"><span class="stat-num">Доставка</span> <span class="stat-label">по Україні</span></div><div class="stat-desc">Відправлення в будь-який регіон країни</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Основні види продукції</div>
+    <h2 class="h2">Виготовляємо обладнання для ключових зон професійної кухні</h2>
+    <p class="sub">Обирайте вид продукції, який вам потрібен, та замовляйте її виробництво у потрібних вам розмірах і комплектації.</p>
+    <div class="grid grid-3" id="productGrid"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:44px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap;gap:20px;">
+      <div style="display:flex;align-items:center;gap:22px;">
+        <div style="width:138px;height:118px;border:1px solid var(--line);border-radius:var(--r-img);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/catalog-mockup.webp" alt="Каталог продукції KUNEBERG" style="height:88%;width:auto;object-fit:contain;display:block;"></div>
+        <p style="font-size:15px;font-weight:600;margin:0;max-width:500px;">Хочете ознайомитись з усім асортиментом? Надішліть запит&nbsp;– ми вишлемо на вашу пошту весь каталог нашої продукції.</p>
+      </div>
+      <button class="btn btn-primary" style="margin-left:auto;">Отримати каталог</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 · ІНДИВІДУАЛЬНЕ ВИГОТОВЛЕННЯ ================= -->
+<section class="section section-paper" id="custom">
+  <div class="wrap grid grid-2" style="gap:64px;">
+    <div>
+      <div class="rounded-photo custom-sticky-col" style="aspect-ratio:4/3.6;">
+        <img src="images/block3-custom.webp" alt="Індивідуальний виріб з нержавіючої сталі — виготовлення під колони та комунікації">
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Індивідуальне виготовлення</div>
+      <h2 class="h2">Вам потрібна особлива індивідуальна конфігурація?</h2>
+      <p class="sub">Ніші, колони, комунікації, наявне обладнання та особливості робочого процесу часто потребують індивідуального рішення. KUNEBERG виготовляє меблі під конкретні параметри вашого об'єкта.</p>
+      <div class="grid grid-2" style="gap:0 24px;margin-bottom:22px;">
+        <div class="tag-item"><span class="tag-num">1</span>Розміри – довжина, ширина, висота</div>
+        <div class="tag-item"><span class="tag-num">2</span>Конфігурація – секції, полиці, робочі зони</div>
+        <div class="tag-item"><span class="tag-num">3</span>Борти та поверхні – тип, висота, додаткові елементи</div>
+        <div class="tag-item"><span class="tag-num">4</span>Мийні чаші – кількість, розміри, розташування</div>
+        <div class="tag-item"><span class="tag-num">5</span>Опори – регульовані ніжки та варіанти конструкції</div>
+        <div class="tag-item"><span class="tag-num">6</span>Нестандартні елементи – вирізи, отвори, інтеграція під обладнання</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;">
+        <div class="icon-circle sm" style="margin-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></div>
+        <p class="sub" style="margin:0;">Якщо вашу конструкцію можна оптимізувати або спростити, виготовити швидше та з меншим використанням матеріалів – ви отримаєте варіанти та професійну пораду.</p>
+      </div>
+      <p class="sub" style="margin-bottom:26px;">Не обов'язково мати готове креслення. Надішліть розміри, ескіз, фото місця або просто опишіть задачу.</p>
+      <button class="btn btn-primary">Обговорити проект</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 · ОБЛАДНАННЯ ПІД ФОРМАТ ЗАКЛАДУ ================= -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="eyebrow">Обладнання під формат закладу</div>
+    <h2 class="h2">Обладнання під формат вашого закладу</h2>
+    <p class="sub">Різні формати бізнесу мають різні вимоги до робочих зон. Виготовляємо конструкції з урахуванням площі, навантаження та технологічних процесів.</p>
+    <div class="segments-grid">
+      <div class="segment-tile"><img src="images/block4-restaurant.webp" alt="Ресторани та кафе"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Ресторани та кафе</div><div class="segment-desc">Столи, мийні зони, зонти, стелажі.</div></div></div>
+      <div class="segment-tile"><img src="images/block4-bar.webp" alt="Бари та кав'ярні"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Бари та кав'ярні</div><div class="segment-desc">Барні станції та компактні мийки.</div></div></div>
+      <div class="segment-tile"><img src="images/block4-pizza.webp" alt="Піцерії та фастфуд"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Піцерії та фастфуд</div><div class="segment-desc">Столи, мийки, зонти для щоденної роботи.</div></div></div>
+      <div class="segment-tile sq"><img src="images/block4-streetfood.webp" alt="Стрітфуд, МАФи, кіоски"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Стрітфуд, МАФи, кіоски</div><div class="segment-desc">Компактні рішення для малої<br>площі.</div></div></div>
+      <div class="segment-tile sq"><img src="images/block4-bakery.webp" alt="Пекарні та кондитерські"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Пекарні та кондитерські</div><div class="segment-desc">Виробничі столи, стелажі, мийні зони.</div></div></div>
+      <div class="segment-tile sq"><img src="images/block4-canteen.webp" alt="Їдальні та харчоблоки"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Їдальні та харчоблоки</div><div class="segment-desc">Обладнання для великих обсягів роботи.</div></div></div>
+      <div class="segment-tile sq"><img src="images/block4-foodprod.webp" alt="Харчові виробництва"><div class="segment-scrim"></div><div class="segment-label"><div class="segment-title">Харчові виробництва</div><div class="segment-desc">Конструкції під специфіку виробництва.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 · ПЕРША ФОРМА ПРОРАХУНКУ ================= -->
+<section class="section section-paper">
+  <div class="wrap grid grid-2" style="gap:64px;">
+    <div>
+      <div class="calc-sticky-col">
+      <div class="eyebrow">Прорахунок конструкції</div>
+      <h2 class="h2">Є розміри або креслення? Отримайте прорахунок вашої конструкції</h2>
+      <p class="sub">Надішліть те, що вже маєте: креслення, ескіз, фото, розміри або короткий опис задачі. Ми розберемо запит і допоможемо визначити конфігурацію.</p>
+      <div class="option-row"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> Прикріпіть креслення</div>
+      <div class="option-row"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M21 3H3v18h18V3z"></path><path d="M3 9h18M9 21V9"></path></svg> Вкажіть розміри</div>
+      <div class="option-row"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg> Опишіть задачу</div>
+      </div>
+    </div>
+    <div class="form-card">
+      <div class="form-field"><span class="form-field-label">Ваше ім'я</span><input class="input-line" type="text"></div>
+      <div class="form-field"><span class="form-field-label">Телефон</span><input class="input-line phone-input" type="tel" inputmode="numeric" placeholder="+38 (0__) ___-__-__" autocomplete="tel" maxlength="19"></div>
+      <div class="form-field"><span class="form-field-label">Розміри / побажання / коментар</span><textarea class="textarea-box" placeholder="Коротко опишіть що саме бажаєте виготовити: розміри / побажання / коментар, і ми опрацюємо для вас найоптимальніший варіант."></textarea></div>
+      <label class="upload-box">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a29c8f" stroke-width="1.6"><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><polyline points="7 9 12 4 17 9"></polyline><line x1="12" y1="4" x2="12" y2="15"></line></svg>
+        <span>Перетягніть файл сюди або натисніть, щоб завантажити</span>
+        <span class="upload-hint">PDF, JPG, PNG, DWG – до 20 МБ</span>
+        <input type="file" hidden>
+      </label>
+      <button class="btn btn-primary btn-block">Отримати прорахунок</button>
+      <p class="form-note">Не маєте готового креслення? Достатньо описати задачу.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 · ПРО ВИРОБНИЦТВО ================= -->
+<section class="section section-white" id="production">
+  <div class="wrap">
+    <div class="eyebrow">Про виробництво та компанію</div>
+    <h2 class="h2">24 роки виготовляємо професійні меблі з нержавіючої сталі для HoReCa</h2>
+    <p class="sub">KUNEBERG – український виробник, який виготовляє індивідуальні конструкції під конкретні параметри кожного об'єкта для професійних кухонь і харчових об'єктів.</p>
+    <div class="grid grid-4" style="margin-bottom:40px;">
+      <div><div class="stat-num" style="font-size:26px;font-weight:800;">24 роки</div><div class="stat-label">досвіду</div></div>
+      <div><div class="stat-num" style="font-size:26px;font-weight:800;">40 000+</div><div class="stat-label">клієнтів за час роботи</div></div>
+      <div><div class="stat-num" style="font-size:26px;font-weight:800;">700–800</div><div class="stat-label">виробів на місяць</div></div>
+      <div><div class="stat-num" style="font-size:26px;font-weight:800;">Вся Україна</div><div class="stat-label">географія доставки</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;margin-bottom:32px;">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+        <rect x="3" y="18.5" width="18" height="3" rx="0.5"></rect>
+        <rect x="4.5" y="4" width="2.3" height="14.5" rx="0.4"></rect>
+        <path d="M6.8 4.6H16.2"></path>
+        <rect x="14.7" y="4.6" width="3.2" height="4.6" rx="0.5"></rect>
+        <line x1="16.3" y1="9.2" x2="16.3" y2="13.2"></line>
+        <line x1="9" y1="13.8" x2="20" y2="13.8"></line>
+      </svg>
+      <p class="sub" style="margin-bottom:0;">Використовуємо сучасне обладнання на базі верстатів з ЧПУ та лазерну різку, що значно підвищує точність і якість продукції.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo1.webp" alt="Виробництво KUNEBERG"></div>
+      <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo2.webp" alt="Виробництво KUNEBERG"></div>
+      <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo3.webp" alt="Виробництво KUNEBERG"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 · ЯК ПРОХОДИТЬ ЗАМОВЛЕННЯ ================= -->
+<section class="section section-paper">
+  <div class="wrap">
+    <div class="eyebrow">Як проходить замовлення</div>
+    <h2 class="h2">Від вашої задачі до готового виробу</h2>
+    <p class="sub">Зрозумілий процес без необхідності самостійно продумувати всі технічні деталі.</p>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-photo"><img src="images/block7-step1.webp" alt="Консультація"></div>
+        <div class="step-num">КРОК 01</div>
+        <h3 class="h3">Розповідаєте, що потрібно</h3>
+        <p class="card-text">Розміри, креслення, фото, ТЗ або просто опис задачі.</p>
+      </div>
+      <div class="step-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      <div class="step">
+        <div class="step-photo"><img src="images/block7-step2.webp" alt="Погодження конструкції"></div>
+        <div class="step-num">КРОК 02</div>
+        <h3 class="h3">Погоджуємо конструкцію</h3>
+        <p class="card-text">Визначаємо параметри, комплектацію та деталі виробу.</p>
+      </div>
+      <div class="step-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      <div class="step">
+        <div class="step-photo"><img src="images/block7-step3.webp" alt="Виготовлення"></div>
+        <div class="step-num">КРОК 03</div>
+        <h3 class="h3">Виготовляємо</h3>
+        <p class="card-text">Стандартний термін – від 2 тижнів, залежно від обсягу.</p>
+      </div>
+      <div class="step-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      <div class="step">
+        <div class="step-photo"><img src="images/block7-step4.webp" alt="Завантаження авто"></div>
+        <div class="step-num">КРОК 04</div>
+        <h3 class="h3">Готуємо до відправлення</h3>
+        <p class="card-text">Перевірка, відвантаження та доставка по Україні.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 · РЕАЛІЗОВАНІ ПРОЄКТИ ================= -->
+<section class="section section-white" id="cases">
+  <div class="wrap">
+    <div class="eyebrow">Реалізовані проєкти / портфоліо</div>
+    <h2 class="h2">Обладнання, яке працює на реальних об'єктах</h2>
+    <p class="sub">Перемикайтесь між кейсами – фото та деталі проєкту відкриваються одразу, без додаткового вікна.</p>
+    <div class="case-tabs" id="caseTabs"></div>
+    <div class="case-layout">
+      <div class="case-slider" id="caseSlider">
+        <div class="case-zoom-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <button class="slider-arrow prev" id="casePrev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <button class="slider-arrow next" id="caseNext"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+        <div class="dots" id="caseDots"></div>
+      </div>
+      <div class="case-info">
+        <div class="eyebrow">Реалізований проєкт</div>
+        <h3 class="h2" style="font-size:25px;margin-bottom:6px;" id="caseTitle"></h3>
+        <div class="case-city" id="caseCity" style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:20px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span id="caseCityName"></span></div>
+        <div class="case-label">Задача</div>
+        <p class="card-text" style="font-size:14.5px;margin-bottom:0;" id="caseTask"></p>
+        <div class="case-label">Що виготовлено</div>
+        <div class="case-list" id="caseMade"></div>
+        <button class="btn btn-outline-dark" style="margin-top:28px;">Обговорити подібний проєкт</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 · ЯКІСТЬ, МАТЕРІАЛИ, ГАРАНТІЯ ================= -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="grid grid-2" style="gap:48px;align-items:center;margin-bottom:40px;">
+      <div>
+        <div class="eyebrow">Якість, матеріали, гарантія</div>
+        <h2 class="h2">Якість, за яку ми відповідаємо</h2>
+        <p class="sub" style="margin-bottom:0;">Для професійних меблів важливі не тільки зовнішній вигляд і розмір, а й матеріал, конструкція та відповідність погодженим параметрам.</p>
+      </div>
+      <div class="material-photo">
+        <img src="images/block9-steel.webp" alt="Макрофото поверхні нержавіючої сталі">
+        <div class="material-badge">Сталь AISI 201/304/430 · <strong>0,8–1,5 мм</strong></div>
+      </div>
+    </div>
+    <div class="grid grid-4">
+      <div>
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg></div>
+        <h3 class="h3">Матеріал під навантаження</h3>
+        <p class="card-text">Марка та товщина сталі підбираються залежно від типу виробу, конструкції та навантаження.</p>
+      </div>
+      <div>
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v18H3z"></path><path d="M3 9h18M9 21V9"></path></svg></div>
+        <h3 class="h3">Продумана конструкція</h3>
+        <p class="card-text">Розміри, борти, полиці, секції, опори погоджуються заздалегідь.</p>
+      </div>
+      <div>
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <h3 class="h3">Контроль перед відвантаженням</h3>
+        <p class="card-text">Перевірка відповідності погодженій комплектації.</p>
+      </div>
+      <div>
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"></path></svg></div>
+        <h3 class="h3">12 місяців гарантії</h3>
+        <p class="card-text">Якісне гарантійне обслуговування виробника та післягарантійна підтримка. Завжди на зв'язку із замовниками.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 · ТЕХНОЛОГІЧНИЙ ПРОЄКТ ================= -->
+<section class="section-tight tech-banner">
+  <img class="tech-bg" src="images/block10-tech.webp" alt="">
+  <div class="tech-scrim"></div>
+  <div class="wrap tech-inner" style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;">
+    <div style="max-width:700px;">
+      <div class="eyebrow">Технологічний проєкт</div>
+      <h2 class="h2" style="margin-bottom:10px;color:#fff;">Потрібно обладнати кухню комплексно? Почніть із технологічного проєкту</h2>
+      <p class="sub" style="margin-bottom:0;color:#d8d3c9;">Вартість технологічного проєкту віднімається від вартості обладнання, якщо ви замовляєте його у KUNEBERG.</p>
+    </div>
+    <button class="btn btn-white">Обговорити проєкт</button>
+  </div>
+</section>
+
+<!-- ================= 11 · ЧОМУ KUNEBERG ================= -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="eyebrow">Чому KUNEBERG</div>
+    <h2 class="h2">Не просто меблі з нержавійки – виробниче рішення під вашу задачу</h2>
+    <div class="grid grid-5" style="margin-top:32px;">
+      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg></div><h3 class="h3" style="font-size:15px;">Виготовляємо самі</h3><p class="card-text" style="margin-bottom:0;">Контролюємо весь шлях виробу.</p></div>
+      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18M9 21V9"></path><path d="M3 3h18v18H3z"></path></svg></div><h3 class="h3" style="font-size:15px;">Під ваш простір</h3><p class="card-text" style="margin-bottom:0;">Виготовляємо під точні розміри вашого простору.</p></div>
+      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg></div><h3 class="h3" style="font-size:15px;">24 роки досвіду</h3><p class="card-text" style="margin-bottom:0;">Практичне розуміння HoReCa.</p></div>
+      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="10" width="10" height="10" rx="2"></rect><circle cx="7" cy="15" r="2"></circle><path d="M12 12l9-9"></path><path d="M16 11l2 2"></path><path d="M19 8l2 2"></path></svg></div><h3 class="h3" style="font-size:15px;">Виїзд замірника</h3><p class="card-text" style="margin-bottom:0;">Виїзд замірника на ваш об'єкт при необхідності.</p></div>
+      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></div><h3 class="h3" style="font-size:15px;">Доставка по Україні</h3><p class="card-text" style="margin-bottom:0;">Відправлення в будь-який регіон.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 12 · ВІДГУКИ ================= -->
+<section class="section section-paper">
+  <div class="wrap">
+    <div class="eyebrow">Відгуки</div>
+    <h2 class="h2">Що говорять клієнти KUNEBERG</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="avatar-ph">ІП</div>
+        <p class="card-text" style="font-size:14.5px;">«Заповнюється реальною цитатою клієнта – конкретний результат співпраці.»</p>
+        <div style="font-weight:700;font-size:14px;">Ім'я Прізвище</div>
+        <div class="card-text" style="margin:2px 0 0;">Назва закладу, місто</div>
+      </div>
+      <div class="card">
+        <div class="avatar-ph">ІП</div>
+        <p class="card-text" style="font-size:14.5px;">«Заповнюється реальною цитатою клієнта – конкретний результат співпраці.»</p>
+        <div style="font-weight:700;font-size:14px;">Ім'я Прізвище</div>
+        <div class="card-text" style="margin:2px 0 0;">Назва закладу, місто</div>
+      </div>
+      <div class="card">
+        <div class="avatar-ph">ІП</div>
+        <p class="card-text" style="font-size:14.5px;">«Заповнюється реальною цитатою клієнта – конкретний результат співпраці.»</p>
+        <div style="font-weight:700;font-size:14px;">Ім'я Прізвище</div>
+        <div class="card-text" style="margin:2px 0 0;">Назва закладу, місто</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 13 · FAQ ================= -->
+<section class="section section-white" id="faq">
+  <div class="wrap" style="max-width:820px;">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="h2">Часті запитання</h2>
+    <div style="margin-top:24px;" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ================= 14 · ФІНАЛЬНИЙ CTA ================= -->
+<section class="section section-paper">
+  <div class="wrap">
+    <div style="max-width:760px;margin-bottom:36px;">
+      <div class="eyebrow">Фінальний запит</div>
+      <h2 class="h2">Розкажіть, що потрібно виготовити – допоможемо визначити конструкцію та розрахувати вартість</h2>
+      <p class="sub" style="margin-bottom:0;">Маєте креслення – прикріпіть його. Є лише розміри чи фото – надсилайте. Ще не визначились – просто опишіть задачу.</p>
+    </div>
+    <div class="form-card" style="padding:26px 28px;display:grid;grid-template-columns:1fr 1fr 1.6fr auto auto;gap:18px;align-items:end;">
+      <div class="form-field" style="margin-bottom:0;"><span class="form-field-label">Ваше ім'я</span><input class="input-line" type="text"></div>
+      <div class="form-field" style="margin-bottom:0;"><span class="form-field-label">Телефон</span><input class="input-line phone-input" type="tel" inputmode="numeric" placeholder="+38 (0__) ___-__-__" autocomplete="tel" maxlength="19"></div>
+      <div class="form-field" style="margin-bottom:0;"><span class="form-field-label">Розміри / коментар</span><input class="input-line" type="text"></div>
+      <label class="form-field" style="margin-bottom:0;">
+        <span class="form-field-label">Файл</span>
+        <div class="upload-box" style="margin-bottom:0;height:48px;padding:0 18px;flex-direction:row;gap:9px;white-space:nowrap;border-radius:var(--r-sm);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a29c8f" stroke-width="1.6"><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><polyline points="7 9 12 4 17 9"></polyline><line x1="12" y1="4" x2="12" y2="15"></line></svg>
+          <span>Прикріпити</span>
+        </div>
+        <input type="file" hidden>
+      </label>
+      <button class="btn btn-primary" style="height:48px;">Надіслати на прорахунок</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 15 · КОНТАКТИ + МАПА ================= -->
+<section class="section section-white" id="contacts">
+  <div class="wrap grid grid-2" style="gap:64px;margin-bottom:36px;align-items:start;">
+    <div>
+      <div class="eyebrow">Контакти</div>
+      <h2 class="h2">Зв'яжіться з KUNEBERG</h2>
+      <div class="contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +38 (067) 899-20-00, +38 (095) 388-30-00</div>
+      <div class="contact-row" style="border-bottom:none;padding-bottom:0;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Графік роботи: пн–пт з 09:00 до 18:00*</div>
+      <p style="font-size:12.8px;color:var(--muted);line-height:1.6;margin:10px 0 0;padding-bottom:13px;border-bottom:1px solid var(--line);">* – залишайте заявку через форми на сайті в тому числі в неробочий час і в вихідні – на наступний робочий день та в понеділок наші спеціалісти з вами зв'яжуться та проконсультують.</p>
+      <div class="contact-row" style="margin-top:6px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" ry="3"></rect><path d="M3 7l9 6 9-6"></path></svg> zaproskuneberg@gmail.com</div>
+      <div class="contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg> Telegram / Viber</div>
+      <div class="contact-row" style="align-items:flex-start;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> м. Київ, вул. Василя Стуса, 35-Б,<br>оф. 513, Бізнес центр B1</div>
+      <div class="delivery-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+        <span style="font-weight:700;font-size:15px;">Доставка по всій Україні</span>
+      </div>
+    </div>
+    <div class="rounded-photo" style="aspect-ratio:4/3.3;">
+      <img src="images/office.webp" alt="Офіс KUNEBERG">
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="map-placeholder">GOOGLE MAP – інтерактивна карта з геоміткою виробництва / офісу<br>(вставляється окремим embed-кодом)</div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <img class="footer-logo" src="images/logo-mono.webp" alt="KUNEBERG">
+    <nav class="footer-nav"><a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a></nav>
+    <div style="display:flex;align-items:center;gap:18px;">
+      <div class="socials">
+        <div class="msg-icon" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></div>
+        <div class="msg-icon" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+      </div>
+      <div class="lang">UA / RU</div>
+    </div>
+  </div>
+  <div class="wrap"><div class="copyright">© KUNEBERG – виробництво професійних меблів з нержавіючої сталі для HoReCa</div></div>
+</footer>
+
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <div class="modal-gallery">
+      <button class="slider-arrow prev" id="modalPrev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+      <img id="modalImg" src="" alt="">
+      <button class="slider-arrow next" id="modalNext"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      <div class="modal-counter" id="modalCounter"></div>
+    </div>
+    <div class="modal-info">
+      <div class="eyebrow">Вид продукції</div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+      <button class="btn btn-primary">Обговорити проект</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CASE LIGHTBOX ================= -->
+<div class="modal-overlay" id="caseLightbox">
+  <div class="lightbox-inner">
+    <button class="modal-close" id="lightboxClose"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <button class="slider-arrow prev" id="lightboxPrev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="slider-arrow next" id="lightboxNext"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+    <div class="modal-counter" id="lightboxCounter" style="color:#fff;bottom:-32px;"></div>
+  </div>
+</div>
+
+<script>
+// ---------- data ----------
+var PRODUCTS = [
+  {slug:'hoods', title:'Витяжні зонти', text:'Пристінні та острівні конструкції під параметри обладнання та приміщення, з підсвіткою за потреби.', thumb:'hoods-1', count:7},
+  {slug:'tables', title:'Виробничі столи', text:'Робочі столи з бортами, полицями та підсиленням – під потрібні розміри і навантаження.', thumb:'tables-1', count:7},
+  {slug:'sinks', title:'Мийні ванни', text:'Одно-, дво- та багатосекційні конструкції зі зміною розмірів чаш під ваші задачі.', thumb:'sinks-1', count:11},
+  {slug:'bar', title:'Барні станції', text:"Компактні робочі зони бармена під обладнання та планування стійки: мийні чаші, лід-бокси, полиці для інвентарю.", thumb:'bar-1', count:9},
+  {slug:'shelving', title:'Стелажі з нержавіючої сталі', text:'Для зберігання інвентарю, продуктів і посуду в харчоблоках, коморах і виробничих цехах.', thumb:'shelving-1', count:5},
+  {slug:'custom', title:'Нестандартні конструкції', text:'Тумби, візки, підставки, шафи та комбіновані вироби за кресленням або вказаними розмірами.', thumb:'custom-9', count:12}
+];
+
+var CASES = [
+  {slug:'irpin', title:"Ресторан «під ключ»", city:"Ірпінь", count:6,
+    task:"Виготовити та встановити технологічне і нейтральне обладнання для всіх процесів заготівлі, приготування, зберігання та видачі готової продукції кухні, бару і кондитерського цеху.",
+    made:["Меблі з нержавіючої сталі за власним технологічним проєктом","Постачання холодильного, теплового та барного обладнання","Монтаж і встановлення на об'єкті"]},
+  {slug:'kherson', title:"Дитячий розважальний центр", city:"Херсон", count:5,
+    task:"Обладнати харчоблок під ключ для приготування піци, пасти та іншої продукції – 2021 рік.",
+    made:["Виробничі столи та мийки, полиці й стелажі для посуду","Витяжні зонти, теплові столи, пастоварки","Індукційні плити, вок-плита, фритюрниця, холодильні столи","Барна станція, база під каво-машину","Кондитерський стелаж і підставки під пароконвектомат"]},
+  {slug:'kharkiv', title:"Ресторан піца-паста", city:"Харків", count:3,
+    task:"Обладнати кухню ресторану під приготування піци, пасти та іншої продукції.",
+    made:["Виробничі столи та мийки, полиці й стелажі","Витяжні зонти","Теплові столи, пастоварки, індукційні плити","Вок-плита та фритюрниця, холодильні столи"]},
+  {slug:'terrace', title:"Літня тераса з басейном", count:4,
+    task:"Виготовити меблі для кухні та бару літньої тераси за розробленим проєктом.",
+    made:["Виробничі столи та мийки, полиці й стелажі","Витяжні зонти","Барна станція, база під каво-машину, база під пиво","Сушарка для посуду та інше обладнання"]},
+  {slug:'minikitchen', title:"Мінікухня під обладнання замовника", count:2,
+    task:"Виготовити меблі під обладнання замовника (пароконвектомат + плита) для компактної кухні.",
+    made:["Стіл-мийка","Підставка під пароконвектомат","Стіл","Стіл із врізкою під плиту замовника"]},
+  {slug:'blin', title:"Кафе «БЛІН»", count:2,
+    task:"Спроєктувати та обладнати компактну робочу зону для приготування і видачі млинців з урахуванням обмеженої площі.",
+    made:["Станція для приготування млинців","Виробничі столи, виробнича мийка","Витяжний зонт","Обшивка елементів стійки"]},
+  {slug:'nonstandard', title:"Нестандартний стіл під комунікації", count:3,
+    task:"Виготовити стіл нестандартного розміру з точними вирізами під наявні комунікації об'єкта без зміни інженерних мереж.",
+    made:["Стіл нестандартного розміру за кресленням","Точні вирізи під готові комунікації","Монтаж безпосередньо на об'єкті"]}
+];
+
+var FAQ = [
+  {q:"Чи можна виготовити меблі за моїми розмірами?", a:"Так. Кожен виріб KUNEBERG виготовляється індивідуально: ви можете змінити довжину, ширину, висоту, секції, полиці, борти, опори та інші параметри під ваш об'єкт."},
+  {q:"Що потрібно надіслати для прорахунку?", a:"Достатньо надіслати розміри, ескіз, фото місця встановлення або креслення – якщо воно у вас є. Якщо готового рішення немає, просто опишіть задачу."},
+  {q:"Що робити, якщо в мене немає креслення?", a:"Це не обов'язково. Наші спеціалісти допоможуть визначити конфігурацію на основі опису задачі, фото приміщення або наявного обладнання."},
+  {q:"Який термін виготовлення?", a:"Стандартний термін – від 2 тижнів залежно від обсягу та складності замовлення."},
+  {q:"Чи доставляєте по Україні?", a:"Так, доставляємо в будь-який регіон України."},
+  {q:"Яку нержавіючу сталь використовуєте?", a:"Використовуємо сталь AISI 201 / 304 / 430 товщиною 0,8–1,5 мм – марка та товщина підбираються залежно від типу виробу та навантаження."},
+  {q:"Чи можна замовити технологічний проєкт кухні?", a:"Так. Вартість технологічного проєкту віднімається від вартості обладнання, якщо ви замовляєте його у KUNEBERG."},
+  {q:"Чи виконуєте монтаж?", a:"Так, за потреби виконуємо встановлення та монтаж обладнання на об'єкті."},
+  {q:"Яка гарантія на продукцію?", a:"12 місяців гарантії виробника на продукцію KUNEBERG та післягарантійна підтримка."}
+];
+
+// ---------- render product grid ----------
+var grid = document.getElementById('productGrid');
+PRODUCTS.forEach(function(p, i){
+  var el = document.createElement('div');
+  el.className = 'card card-product';
+  el.innerHTML = '<div class="card-img-frame"><img src="images/eskizy/'+p.thumb+'.webp" alt="'+p.title+'"></div>'+
+    '<h3 class="h3">'+p.title+'</h3>'+
+    '<p class="card-text">'+p.text+'</p>'+
+    '<span class="link-arrow">Подивитись ще <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>';
+  grid.appendChild(el);
+});
+
+// ---------- product modal ----------
+var modal = document.getElementById('productModal');
+var modalImg = document.getElementById('modalImg');
+var modalTitle = document.getElementById('modalTitle');
+var modalText = document.getElementById('modalText');
+var modalCounter = document.getElementById('modalCounter');
+var curProduct = 0, curProductImg = 0;
+
+function openProductModal(i){
+  curProduct = i; curProductImg = 0;
+  updateModal();
+  modal.classList.add('open');
+}
+function updateModal(){
+  var p = PRODUCTS[curProduct];
+  modalImg.src = 'images/eskizy/'+p.slug+'-'+(curProductImg+1)+'.webp';
+  modalTitle.textContent = p.title;
+  modalText.textContent = p.text;
+  modalCounter.textContent = (curProductImg+1)+' / '+p.count;
+}
+document.getElementById('modalClose').onclick = function(){ modal.classList.remove('open'); };
+modal.addEventListener('click', function(e){ if(e.target === modal){ modal.classList.remove('open'); } });
+document.getElementById('modalPrev').onclick = function(){
+  var p = PRODUCTS[curProduct];
+  curProductImg = (curProductImg - 1 + p.count) % p.count;
+  updateModal();
+};
+document.getElementById('modalNext').onclick = function(){
+  var p = PRODUCTS[curProduct];
+  curProductImg = (curProductImg + 1) % p.count;
+  updateModal();
+};
+
+// ---------- case tabs / slider ----------
+var caseTabsEl = document.getElementById('caseTabs');
+var caseDotsEl = document.getElementById('caseDots');
+var caseSliderEl = document.getElementById('caseSlider');
+var curCase = 0, curCaseImg = 0;
+
+CASES.forEach(function(c, i){
+  var tab = document.createElement('div');
+  tab.className = 'case-tab' + (i===0 ? ' active' : '');
+  tab.textContent = c.title;
+  tab.onclick = function(){ switchCase(i); };
+  caseTabsEl.appendChild(tab);
+});
+
+function switchCase(i){
+  curCase = i; curCaseImg = 0;
+  Array.from(caseTabsEl.children).forEach(function(t, idx){ t.classList.toggle('active', idx===i); });
+  renderCaseSlides();
+  renderCaseInfo();
+}
+function renderCaseSlides(){
+  var c = CASES[curCase];
+  Array.from(caseSliderEl.querySelectorAll('.case-slide')).forEach(function(s){ s.remove(); });
+  var anchor = caseSliderEl.querySelector('.case-zoom-hint');
+  for(var k=0;k<c.count;k++){
+    var slide = document.createElement('div');
+    slide.className = 'case-slide' + (k===0 ? ' active' : '');
+    var img = document.createElement('img');
+    img.src = 'images/cases/'+c.slug+'-'+(k+1)+'.webp';
+    slide.appendChild(img);
+    caseSliderEl.insertBefore(slide, anchor);
+  }
+  renderCaseDots();
+}
+function renderCaseDots(){
+  var c = CASES[curCase];
+  caseDotsEl.innerHTML = '';
+  for(var k=0;k<c.count;k++){
+    var d = document.createElement('div');
+    d.className = 'dot-ind' + (k===curCaseImg ? ' active' : '');
+    caseDotsEl.appendChild(d);
+  }
+}
+function showCaseImg(idx){
+  var slides = caseSliderEl.querySelectorAll('.case-slide');
+  slides.forEach(function(s, k){ s.classList.toggle('active', k===idx); });
+  curCaseImg = idx;
+  renderCaseDots();
+}
+function renderCaseInfo(){
+  var c = CASES[curCase];
+  document.getElementById('caseTitle').textContent = c.title;
+  var cityEl = document.getElementById('caseCity');
+  if(c.city){
+    cityEl.style.display = 'flex';
+    document.getElementById('caseCityName').textContent = c.city;
+  } else {
+    cityEl.style.display = 'none';
+  }
+  document.getElementById('caseTask').textContent = c.task;
+  var madeEl = document.getElementById('caseMade');
+  madeEl.innerHTML = '';
+  c.made.forEach(function(m){
+    var d = document.createElement('div');
+    d.textContent = m;
+    madeEl.appendChild(d);
+  });
+}
+document.getElementById('casePrev').onclick = function(){
+  var c = CASES[curCase];
+  showCaseImg((curCaseImg - 1 + c.count) % c.count);
+};
+document.getElementById('caseNext').onclick = function(){
+  var c = CASES[curCase];
+  showCaseImg((curCaseImg + 1) % c.count);
+};
+
+// ---------- case lightbox ----------
+var caseLightbox = document.getElementById('caseLightbox');
+var lightboxImg = document.getElementById('lightboxImg');
+var lightboxCounter = document.getElementById('lightboxCounter');
+
+function updateLightbox(){
+  var c = CASES[curCase];
+  lightboxImg.src = 'images/cases/'+c.slug+'-'+(curCaseImg+1)+'.webp';
+  lightboxCounter.textContent = (curCaseImg+1)+' / '+c.count;
+}
+function openLightbox(){
+  updateLightbox();
+  caseLightbox.classList.add('open');
+}
+caseSliderEl.addEventListener('click', function(e){
+  if(e.target.closest('.slider-arrow')) return;
+  openLightbox();
+});
+document.getElementById('lightboxClose').onclick = function(){ caseLightbox.classList.remove('open'); };
+caseLightbox.addEventListener('click', function(e){ if(e.target === caseLightbox){ caseLightbox.classList.remove('open'); } });
+document.getElementById('lightboxPrev').onclick = function(){
+  var c = CASES[curCase];
+  showCaseImg((curCaseImg - 1 + c.count) % c.count);
+  updateLightbox();
+};
+document.getElementById('lightboxNext').onclick = function(){
+  var c = CASES[curCase];
+  showCaseImg((curCaseImg + 1) % c.count);
+  updateLightbox();
+};
+document.addEventListener('keydown', function(e){
+  if(!caseLightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') caseLightbox.classList.remove('open');
+  if(e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+  if(e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+});
+renderCaseSlides();
+renderCaseInfo();
+
+// ---------- FAQ ----------
+var faqList = document.getElementById('faqList');
+FAQ.forEach(function(item, i){
+  var el = document.createElement('div');
+  el.className = 'faq-item' + (i===0 ? ' open' : '');
+  el.innerHTML = '<div class="faq-q">'+item.q+'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>'+
+    '<div class="faq-a">'+item.a+'</div>';
+  el.querySelector('.faq-q').onclick = function(){ el.classList.toggle('open'); };
+  faqList.appendChild(el);
+});
+
+// ---------- header scroll shadow ----------
+var header = document.getElementById('siteHeader');
+window.addEventListener('scroll', function(){
+  header.classList.toggle('scrolled', window.scrollY > 8);
+});
+
+// ---------- phone number mask: +38 (0__) ___-__-__ ----------
+function formatPhoneDigits(digits){
+  digits = digits.slice(0, 10);
+  if(!digits) return '';
+  var out = '+38 (' + digits.slice(0, 3);
+  if(digits.length >= 3) out += ')';
+  if(digits.length > 3) out += ' ' + digits.slice(3, 6);
+  if(digits.length > 6) out += '-' + digits.slice(6, 8);
+  if(digits.length > 8) out += '-' + digits.slice(8, 10);
+  return out;
+}
+document.querySelectorAll('.phone-input').forEach(function(input){
+  input.addEventListener('input', function(){
+    var digits = input.value.replace(/\D/g, '');
+    if(digits.startsWith('380')) digits = digits.slice(2);
+    else if(digits.startsWith('38')) digits = digits.slice(2);
+    input.value = formatPhoneDigits(digits);
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Backspace' && input.value.length && !/\d/.test(input.value.slice(-1))){
+      e.preventDefault();
+      var digits = input.value.replace(/\D/g, '').slice(0, -1);
+      input.value = formatPhoneDigits(digits);
+    }
+  });
+});
+</script>
+</body>
+</html>
