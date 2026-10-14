@@ -6,6 +6,8 @@ Static, self-contained HTML site for GitHub Pages: the KUNEBERG B2B landing page
 
 - `index.html` — navigation
 - `design/index.html` — **final visual design**: full desktop layout, real photos, brand colors, product and case popups, responsive
+- `design/<product>.html` — final visual design, standalone product pages (one per product category: `vyrobnychyi-stil`, `vytiazhnyi-zont`, `myina-vanna`, `barna-stantsiia`, `stelazh`, `nestandartni-konstruktsii`) — Google Merchant Center-compatible product detail pages linked from the product cards
+- `design/order-*.html` — final visual design, primitive checkout/order pages (one per product), linked from each product page's "Замовити" button — contact form + payment note, built to satisfy Google Merchant Center review requirements
 - `desktop.html` — wireframe, full desktop, 1440px, all 15 sections (grayscale, structural placeholders)
 - `mobile.html` — wireframe, mobile, 390px, adaptive carousels + fixed bottom CTA
 - `product-modal.html` — wireframe, product card modal (opens from section 02 on the live design)

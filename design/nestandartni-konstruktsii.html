@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Нестандартні конструкції та меблі з нержавіючої сталі – KUNEBERG</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#191715; --ink-soft:#4a453f; --muted:#726c63;
+  --paper:#f7f5f2; --white:#ffffff;
+  --line:#e7e3dc; --line-strong:#d8d2c7;
+  --dark:#16140f; --dark-soft:#242019; --dark-line:#3a352b;
+  --orange:#d85028; --orange-dark:#b53f1d; --orange-tint:#fbe9e2;
+  --r-btn:999px; --r-card:20px; --r-img:16px; --r-sm:10px;
+  --shadow-card:0 18px 40px -24px rgba(25,20,15,.35);
+  --shadow-pop:0 30px 70px -25px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px;}
+.section{padding:96px 0;}
+.section-tight{padding:72px 0;}
+.eyebrow{font-size:13px;color:var(--orange);font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:.08em;}
+.h1{font-size:46px;line-height:1.15;font-weight:800;margin:0 0 22px;letter-spacing:-0.015em;}
+.h2{font-size:32px;line-height:1.22;font-weight:800;margin:0 0 14px;letter-spacing:-0.012em;}
+.h3{font-size:18px;font-weight:700;margin:0 0 8px;}
+.sub{font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 32px;max-width:640px;font-weight:400;}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 30px;font-size:13.5px;font-weight:700;border-radius:var(--r-btn);border:1.5px solid transparent;cursor:pointer;letter-spacing:.01em;white-space:nowrap;transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 14px 30px -12px rgba(216,80,40,.55);}
+.btn-primary:hover{background:var(--orange-dark);}
+.btn-outline-dark{background:transparent;color:var(--ink);border-color:var(--ink);}
+.btn-outline-dark:hover{background:var(--ink);color:#fff;}
+.btn-sm{padding:11px 20px;font-size:12.5px;}
+.btn-block{width:100%;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* header */
+.header{position:sticky;top:0;z-index:40;background:rgba(247,245,242,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;}
+.header .wrap{max-width:1440px;}
+.header.scrolled{border-color:var(--line);box-shadow:0 8px 24px -20px rgba(0,0,0,.4);}
+@media (min-width:681px){
+  .header{background:linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.32));backdrop-filter:blur(22px) saturate(220%);-webkit-backdrop-filter:blur(22px) saturate(220%);border-bottom:1px solid rgba(255,255,255,.45);}
+  .header.scrolled{border-bottom-color:transparent;box-shadow:0 12px 32px -20px rgba(25,20,15,.28);}
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:82px;gap:24px;transition:height .25s ease;}
+.header.scrolled .header-inner{height:68px;}
+.logo-img{height:34px;width:auto;flex-shrink:0;transition:height .25s ease;}
+.header.scrolled .logo-img{height:28px;}
+.nav{display:flex;gap:26px;font-size:13.5px;font-weight:600;color:var(--ink-soft);flex-shrink:0;}
+.nav a:hover{color:var(--orange);}
+.header-right{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+.phone{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:7px;white-space:nowrap;}
+.messengers{display:flex;gap:8px;}
+.msg-icon{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-soft);transition:.15s;}
+.msg-icon:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+.lang{font-size:12px;color:var(--muted);font-weight:700;border:1px solid var(--line-strong);border-radius:var(--r-btn);padding:7px 12px;white-space:nowrap;}
+.burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+@media (max-width:1380px){.header-right .phone, .header-right .messengers{display:none;}}
+@media (max-width:680px){.nav, .header-right .phone, .header-right .messengers, .header-right .lang{display:none;}.burger{display:flex;}}
+
+/* footer */
+.footer{background:var(--dark);color:#cfc9be;padding:56px 0 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:32px;border-bottom:1px solid var(--dark-line);flex-wrap:wrap;gap:24px;}
+.footer-nav{display:flex;gap:24px;font-size:13.5px;flex-wrap:wrap;}
+.footer-nav a:hover{color:#fff;}
+.socials{display:flex;gap:10px;}
+.footer .msg-icon{border-color:var(--dark-line);color:#cfc9be;}
+.footer .lang{border-color:var(--dark-line);color:#cfc9be;}
+.copyright{font-size:12px;color:#8b8579;padding:22px 0;text-align:center;}
+.footer-logo{height:32px;filter:invert(1) brightness(1.6);}
+
+/* breadcrumb */
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--ink-soft);margin:28px 0 22px;}
+.back-link:hover{color:var(--orange);}
+.product-eyebrow-row{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:16px;}
+.product-eyebrow-row strong{color:var(--ink);font-weight:700;}
+.product-eyebrow-row a{color:var(--muted);}
+.product-eyebrow-row a:hover{color:var(--orange);text-decoration:underline;}
+
+/* product layout */
+.product-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;padding-bottom:40px;}
+.gallery-sticky{position:sticky;top:110px;}
+.gallery-main{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);aspect-ratio:4/3;cursor:zoom-in;position:relative;}
+.gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.gallery-main:hover img{transform:scale(1.05);}
+.gallery-zoom-hint{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -8px rgba(0,0,0,.4);z-index:2;pointer-events:none;}
+.gallery-thumbs{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+.gallery-thumb{width:68px;height:52px;border-radius:var(--r-sm);overflow:hidden;cursor:pointer;border:2px solid transparent;flex-shrink:0;opacity:.7;transition:.15s;}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;}
+.gallery-thumb:hover{opacity:1;}
+.gallery-thumb.active{border-color:var(--orange);opacity:1;}
+
+.avail-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.avail-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-strong);border-radius:var(--r-btn);padding:7px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft);}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#3a8f4a;flex-shrink:0;}
+.price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px dashed var(--line-strong);flex-wrap:wrap;}
+.price-label{font-size:13px;color:var(--muted);font-weight:600;}
+.price-value{font-size:34px;font-weight:800;letter-spacing:-0.01em;color:var(--ink);}
+.price-note{font-size:12.5px;color:var(--muted);width:100%;margin-top:2px;line-height:1.5;}
+.product-description{border-top:1px solid var(--line);padding-top:24px;margin-bottom:28px;}
+.product-desc{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 16px;}
+.product-desc:last-child{margin-bottom:0;}
+.chip-row{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px;}
+.chip{border:1.5px solid var(--line-strong);border-radius:var(--r-btn);padding:8px 15px;font-size:12.5px;font-weight:600;color:var(--ink-soft);}
+.product-cta{margin-bottom:32px;}
+.product-cta .btn{flex:1 1 180px;}
+
+.info-block{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r-card);background:#fff;padding:18px 20px;margin-bottom:32px;}
+.icon-circle{width:52px;height:52px;border-radius:50%;background:var(--orange-tint);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--orange);flex-shrink:0;}
+.icon-circle svg{width:22px;height:22px;}
+.icon-circle.sm{width:44px;height:44px;margin-bottom:0;}
+.icon-circle.sm svg{width:18px;height:18px;}
+.info-title{font-size:13.5px;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.02em;}
+.info-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.carrier-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;}
+.carrier-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink);}
+.carrier-icon{width:20px;height:20px;flex-shrink:0;display:block;}
+
+.specs{border-top:1px solid var(--line);padding-top:24px;}
+.specs-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:16px;}
+.spec-row{display:flex;justify-content:space-between;gap:20px;font-size:14px;padding:13px 0;border-bottom:1px solid var(--line);}
+.spec-row:last-child{border-bottom:none;}
+.spec-key{color:var(--muted);}
+.spec-val{font-weight:700;text-align:right;color:var(--ink);}
+
+/* modal / lightbox */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,13,10,.66);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:100;padding:28px;}
+.modal-overlay.open{display:flex;}
+.lightbox-inner{position:relative;max-width:1200px;width:100%;max-height:88vh;display:flex;align-items:center;justify-content:center;}
+.lightbox-inner img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:var(--shadow-pop);}
+.lightbox-inner .modal-close{top:-52px;right:0;background:rgba(255,255,255,.92);}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:var(--paper);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;}
+.modal-close:hover{background:var(--ink);color:#fff;}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,0,0,.4);z-index:2;}
+.slider-arrow:hover{background:#fff;}
+.slider-arrow.prev{left:16px;}
+.slider-arrow.next{right:16px;}
+.modal-counter{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:12px;color:var(--muted);font-weight:700;}
+
+@media (max-width:980px){
+  .product-grid{grid-template-columns:1fr;gap:28px;}
+  .gallery-sticky{position:static;}
+}
+@media (max-width:680px){
+  .h1{font-size:30px;}
+  .section{padding:64px 0;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+  .product-cta .btn{flex:1 1 100%;}
+}
+.form-field{margin-bottom:18px;}
+.form-field-label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:8px;}
+.input-line{height:48px;width:100%;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:#fff;padding:0 16px;font-family:inherit;font-size:14px;}
+.input-line:focus{outline:none;border-color:var(--orange);}
+.cta-modal{background:#fff;border-radius:var(--r-card);max-width:420px;width:100%;padding:32px 32px 40px;box-shadow:var(--shadow-pop);position:relative;max-height:90vh;overflow:auto;}
+.cta-modal .modal-close{position:absolute;top:16px;right:16px;}
+.cta-modal h3{font-size:21px;font-weight:800;margin:28px 0 8px;text-align:center;}
+.cta-modal-sub{font-size:13px;color:var(--muted);line-height:1.5;margin:0 0 22px;text-align:center;}
+.cta-modal .form-field{margin-bottom:14px;}
+.cta-modal .form-field{margin-bottom:14px;}
+.required-mark{color:var(--orange);margin-left:3px;font-weight:700;}
+.input-line.field-error{border-color:var(--orange);}
+.field-error-msg{display:none;color:var(--orange-dark);font-size:11.5px;margin-top:6px;}
+.field-error-msg.show{display:block;}
+.textarea-box{width:100%;min-height:96px;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:#fff;padding:12px 16px;font-family:inherit;font-size:14px;resize:vertical;}
+.textarea-box::placeholder{font-size:12.5px;color:#a29c8f;}
+.upload-box{border:1.5px dashed var(--line-strong);background:var(--paper);border-radius:var(--r-sm);padding:22px;text-align:center;font-size:13px;color:var(--muted);margin-bottom:20px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;}
+.upload-box:hover{border-color:var(--orange);color:var(--orange);}
+.cta-modal .upload-box{padding:10px 16px;gap:4px;margin-bottom:18px;}
+.upload-hint{font-size:11.5px;color:#a29c8f;}
+.form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;}
+.cta-modal .form-note{margin-top:16px;}
+</style>
+</head>
+<body>
+<!-- ================= CALC MODAL (Отримати прорахунок) ================= -->
+<div class="modal-overlay" id="calcModal">
+  <div class="cta-modal">
+    <button class="modal-close" id="calcModalClose"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <h3>Цікавить прорахунок вашого проекту?</h3>
+    <p class="cta-modal-sub">Надішліть розміри, креслення або фото – ми розрахуємо вартість вашої конструкції.</p>
+    <div class="form-field"><span class="form-field-label">Ваше ім'я<span class="required-mark">*</span></span><input class="input-line" type="text" data-required="true"><div class="field-error-msg">Будь ласка, вкажіть ваше ім'я</div></div>
+    <div class="form-field"><span class="form-field-label">Телефон<span class="required-mark">*</span></span><input class="input-line phone-input" type="tel" inputmode="numeric" placeholder="+38 (0__) ___-__-__" autocomplete="tel" maxlength="19" data-required="true"><div class="field-error-msg">Будь ласка, вкажіть номер телефону</div></div>
+    <div class="form-field"><span class="form-field-label">Розміри / побажання / коментар</span><textarea class="textarea-box" style="min-height:70px;" placeholder="Коротко опишіть що саме бажаєте виготовити: розміри / побажання / коментар."></textarea></div>
+    <label class="upload-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a29c8f" stroke-width="1.6"><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><polyline points="7 9 12 4 17 9"></polyline><line x1="12" y1="4" x2="12" y2="15"></line></svg>
+      <span>Прикріпити файл</span>
+      <span class="upload-hint">PDF, JPG, PNG, DWG – до 20 МБ</span>
+      <input type="file" hidden>
+    </label>
+    <button class="btn btn-primary btn-block" id="calcModalSubmit">Отримати прорахунок</button>
+    <p class="form-note">Не маєте готового креслення? Достатньо описати задачу.</p>
+  </div>
+</div>
+
+<!-- ================= CONSULT MODAL (Отримати консультацію) ================= -->
+<div class="modal-overlay" id="consultModal">
+  <div class="cta-modal">
+    <button class="modal-close" id="consultModalClose"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <h3>Потрібна консультація фахівця?</h3>
+    <p class="cta-modal-sub">Залиште контакти – розповімо про можливі рішення та відповімо на запитання.</p>
+    <div class="form-field"><span class="form-field-label">Ваше ім'я<span class="required-mark">*</span></span><input class="input-line" type="text" data-required="true"><div class="field-error-msg">Будь ласка, вкажіть ваше ім'я</div></div>
+    <div class="form-field" style="margin-bottom:22px;"><span class="form-field-label">Телефон<span class="required-mark">*</span></span><input class="input-line phone-input" type="tel" inputmode="numeric" placeholder="+38 (0__) ___-__-__" autocomplete="tel" maxlength="19" data-required="true"><div class="field-error-msg">Будь ласка, вкажіть номер телефону</div></div>
+    <button class="btn btn-primary btn-block" id="consultModalSubmit">Отримати консультацію</button>
+  </div>
+</div>
+
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+window.scrollTo({top:0, left:0, behavior:'instant'});
+window.addEventListener('pageshow', function(){ window.scrollTo({top:0, left:0, behavior:'instant'}); });
+</script>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="siteHeader">
+  <div class="wrap header-inner">
+    <img class="logo-img" src="images/logo-mono.webp" alt="KUNEBERG">
+    <nav class="nav">
+      <a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang">UA / RU</div>
+      <div class="phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        +38 (067) 899-20-00
+      </div>
+      <div class="messengers">
+        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+      </div>
+      <button class="btn btn-primary btn-sm js-open-calc">Отримати прорахунок</button>
+      <div class="burger" id="burgerBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PRODUCT ================= -->
+<div class="wrap">
+  <a class="back-link" href="index.html#products"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Переглянути всі пропозиції</a>
+
+  <div class="product-grid">
+    <div>
+      <div class="gallery-sticky">
+        <div class="gallery-main" id="galleryMain">
+          <img id="galleryMainImg" src="images/products/nestandartni-konstruktsii-1.webp" alt="Нестандартні конструкції та меблі з нержавіючої сталі">
+          <div class="gallery-zoom-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+          <button class="slider-arrow prev" id="galleryPrev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="slider-arrow next" id="galleryNext"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="product-eyebrow-row"><a href="index.html#products">Основні види продукції</a> · <strong>Нестандартні конструкції та інші вироби</strong></div>
+      <h1 class="h1" style="font-size:36px;">Нестандартні конструкції та меблі з нержавіючої сталі</h1>
+
+      <div class="avail-row">
+        <div class="avail-badge"><span class="avail-dot"></span>В наявності</div>
+      </div>
+
+      <div class="price-row">
+        <span class="price-label">Ціна від</span>
+        <span class="price-value">2 000 ₴</span>
+        <span class="price-note">Фінальна вартість залежить від розмірів, комплектації та кількості секцій – уточнюється при оформленні заявки.</span>
+      </div>
+
+      <div class="cta-row product-cta">
+        <button class="btn btn-primary js-open-consult">Отримати консультацію</button>
+        <button class="btn btn-outline-dark" onclick="location.href='order-custom.html'">Замовити</button>
+      </div>
+
+      <div class="info-block">
+        <div class="icon-circle sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></div>
+        <div>
+          <div class="info-title">Умови доставки</div>
+          <div class="info-text">Відправляємо по всій Україні протягом 1–3 днів після виготовлення замовлення</div>
+          <div class="carrier-row">
+            <div class="carrier-item"><img class="carrier-icon" src="images/logos/nova-poshta-logo.svg" alt="Нова пошта"><span>Новою поштою</span></div>
+            <div class="carrier-item"><img class="carrier-icon" src="images/logos/meest-logo.svg" alt="Meest Express"><span>Meest Express</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-description">
+        <div class="specs-title">Опис товару</div>
+        <p class="product-desc">Нестандартні меблі з нержавіючої сталі виготовляються за індивідуальними вимогами та відрізняються від моделей у каталозі. Це можуть бути вироби з Г-подібними ніжками, полицями нестандартної форми, вирізами під комунікації, радіусами або скосами деталей. Конструкцію адаптуємо до особливостей приміщення та ваших робочих потреб.</p>
+        <p class="product-desc">Також виготовляємо інші меблі з нержавіючої сталі – нейтральне обладнання, представлене в нашому каталозі, але не показане на цій сторінці сайту: полиці, сушарки для посуду, стелажі-шпильки, підставки, підтоварники, тумби, шафи, вішала для м'яса та інші вироби.</p>
+      </div>
+
+      <div class="chip-row">
+        <div class="chip">Довжина / ширина / висота – під замовлення</div>
+        <div class="chip">Борти</div>
+        <div class="chip">Полиці</div>
+        <div class="chip">Підсилення каркасу</div>
+        <div class="chip">Регульовані опори</div>
+        <div class="chip">Г-подібні ніжки</div>
+        <div class="chip">Нестандартні полиці</div>
+        <div class="chip">Вирізи під комунікації</div>
+      </div>
+
+      <div class="specs">
+        <div class="specs-title">Характеристики</div>
+        <div class="spec-row"><span class="spec-key">Артикул</span><span class="spec-val">KNB-CST-001</span></div>
+        <div class="spec-row"><span class="spec-key">Категорія</span><span class="spec-val">Нестандартні конструкції та інші вироби</span></div>
+        <div class="spec-row"><span class="spec-key">Матеріал</span><span class="spec-val">Сталь AISI 201 / 304 / 430</span></div>
+        <div class="spec-row"><span class="spec-key">Товщина сталі</span><span class="spec-val">0,8–1,5 мм</span></div>
+        <div class="spec-row"><span class="spec-key">Виробництво</span><span class="spec-val">Україна, під замовлення</span></div>
+        <div class="spec-row"><span class="spec-key">Термін виготовлення</span><span class="spec-val">від 2 тижнів</span></div>
+        <div class="spec-row"><span class="spec-key">Гарантія</span><span class="spec-val">12 місяців</span></div>
+        <div class="spec-row"><span class="spec-key">Доставка</span><span class="spec-val">по всій Україні</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <img class="footer-logo" src="images/logo-mono.webp" alt="KUNEBERG">
+    <nav class="footer-nav"><a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a></nav>
+    <div style="display:flex;align-items:center;gap:18px;">
+      <div class="socials">
+        <div class="msg-icon" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></div>
+        <div class="msg-icon" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+      </div>
+      <div class="lang">UA / RU</div>
+    </div>
+  </div>
+  <div class="wrap"><div class="copyright">© KUNEBERG – виробництво професійних меблів з нержавіючої сталі для HoReCa</div></div>
+</footer>
+
+<!-- ================= GALLERY LIGHTBOX ================= -->
+<div class="modal-overlay" id="galleryLightbox">
+  <div class="lightbox-inner">
+    <button class="modal-close" id="lightboxClose"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <button class="slider-arrow prev" id="lightboxPrev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="slider-arrow next" id="lightboxNext"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+    <div class="modal-counter" id="lightboxCounter" style="color:#fff;bottom:-32px;"></div>
+  </div>
+</div>
+
+<script>
+var GALLERY_COUNT = 7;
+var curImg = 0;
+var galleryMainImg = document.getElementById('galleryMainImg');
+var galleryThumbs = document.getElementById('galleryThumbs');
+var galleryLightbox = document.getElementById('galleryLightbox');
+var lightboxImg = document.getElementById('lightboxImg');
+var lightboxCounter = document.getElementById('lightboxCounter');
+
+for(var i=0;i<GALLERY_COUNT;i++){
+  (function(idx){
+    var t = document.createElement('div');
+    t.className = 'gallery-thumb' + (idx===0 ? ' active' : '');
+    var img = document.createElement('img');
+    img.src = 'images/products/nestandartni-konstruktsii-'+(idx+1)+'.webp';
+    t.appendChild(img);
+    t.onclick = function(){ showImg(idx); };
+    galleryThumbs.appendChild(t);
+  })(i);
+}
+
+function showImg(idx){
+  curImg = idx;
+  galleryMainImg.src = 'images/products/nestandartni-konstruktsii-'+(idx+1)+'.webp';
+  Array.from(galleryThumbs.children).forEach(function(t, k){ t.classList.toggle('active', k===idx); });
+}
+
+function updateLightbox(){
+  lightboxImg.src = 'images/products/nestandartni-konstruktsii-'+(curImg+1)+'.webp';
+  lightboxCounter.textContent = (curImg+1)+' / '+GALLERY_COUNT;
+}
+document.getElementById('galleryMain').addEventListener('click', function(e){
+  if(e.target.closest('.slider-arrow')) return;
+  updateLightbox();
+  galleryLightbox.classList.add('open');
+});
+document.getElementById('galleryPrev').onclick = function(e){
+  e.stopPropagation();
+  showImg((curImg - 1 + GALLERY_COUNT) % GALLERY_COUNT);
+};
+document.getElementById('galleryNext').onclick = function(e){
+  e.stopPropagation();
+  showImg((curImg + 1) % GALLERY_COUNT);
+};
+document.getElementById('lightboxClose').onclick = function(){ galleryLightbox.classList.remove('open'); };
+galleryLightbox.addEventListener('click', function(e){ if(e.target === galleryLightbox){ galleryLightbox.classList.remove('open'); } });
+document.getElementById('lightboxPrev').onclick = function(){
+  showImg((curImg - 1 + GALLERY_COUNT) % GALLERY_COUNT);
+  updateLightbox();
+};
+document.getElementById('lightboxNext').onclick = function(){
+  showImg((curImg + 1) % GALLERY_COUNT);
+  updateLightbox();
+};
+document.addEventListener('keydown', function(e){
+  if(!galleryLightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') galleryLightbox.classList.remove('open');
+  if(e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+  if(e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+});
+
+// ---------- header scroll shrink ----------
+var header = document.getElementById('siteHeader');
+window.addEventListener('scroll', function(){
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// ---------- consult popup ----------
+var consultModal = document.getElementById('consultModal');
+document.querySelectorAll('.js-open-consult').forEach(function(btn){
+  btn.addEventListener('click', function(){ consultModal.classList.add('open'); });
+});
+var calcModal = document.getElementById('calcModal');
+document.querySelectorAll('.js-open-calc').forEach(function(btn){
+  btn.addEventListener('click', function(){ calcModal.classList.add('open'); });
+});
+document.getElementById('calcModalClose').onclick = function(){ calcModal.classList.remove('open'); };
+calcModal.addEventListener('click', function(e){ if(e.target === calcModal){ calcModal.classList.remove('open'); } });
+document.getElementById('consultModalClose').onclick = function(){ consultModal.classList.remove('open'); };
+
+function wireRequiredValidation(container, submitBtn){
+  if(!container || !submitBtn) return;
+  submitBtn.addEventListener('click', function(e){
+    var fields = container.querySelectorAll('[data-required]');
+    var valid = true, firstInvalid = null;
+    fields.forEach(function(input){
+      var msg = input.nextElementSibling;
+      var filled = input.value.trim().length > 0;
+      if(!filled){
+        valid = false;
+        input.classList.add('field-error');
+        if(msg && msg.classList.contains('field-error-msg')) msg.classList.add('show');
+        if(!firstInvalid) firstInvalid = input;
+      } else {
+        input.classList.remove('field-error');
+        if(msg && msg.classList.contains('field-error-msg')) msg.classList.remove('show');
+      }
+    });
+    if(!valid){
+      e.preventDefault();
+      e.stopPropagation();
+      firstInvalid.focus();
+    }
+  }, true);
+  container.querySelectorAll('[data-required]').forEach(function(input){
+    input.addEventListener('input', function(){
+      if(input.value.trim()){
+        input.classList.remove('field-error');
+        var msg = input.nextElementSibling;
+        if(msg && msg.classList.contains('field-error-msg')) msg.classList.remove('show');
+      }
+    });
+  });
+}
+wireRequiredValidation(consultModal, document.getElementById('consultModalSubmit'));
+wireRequiredValidation(calcModal, document.getElementById('calcModalSubmit'));
+consultModal.addEventListener('click', function(e){ if(e.target === consultModal){ consultModal.classList.remove('open'); } });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ consultModal.classList.remove('open'); calcModal.classList.remove('open'); } });
+
+function formatPhoneDigits(digits){
+  if(!digits) return '';
+  var out = '+38 (' + digits.slice(0, 3);
+  if(digits.length >= 3) out += ')';
+  if(digits.length > 3) out += ' ' + digits.slice(3, 6);
+  if(digits.length > 6) out += '-' + digits.slice(6, 8);
+  if(digits.length > 8) out += '-' + digits.slice(8, 10);
+  return out;
+}
+document.querySelectorAll('.phone-input').forEach(function(input){
+  input.addEventListener('input', function(){
+    var digits = input.value.replace(/\D/g, '');
+    if(digits.startsWith('380')) digits = digits.slice(2);
+    else if(digits.startsWith('38')) digits = digits.slice(2);
+    input.value = formatPhoneDigits(digits);
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Backspace' && input.value.length && !/\d/.test(input.value.slice(-1))){
+      e.preventDefault();
+      var digits = input.value.replace(/\D/g, '').slice(0, -1);
+      input.value = formatPhoneDigits(digits);
+    }
+  });
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Нестандартні конструкції та меблі з нержавіючої сталі",
+  "image": [
+    "https://regdev-git.github.io/land.kuneberg/design/images/products/nestandartni-konstruktsii-1.webp",
+    "https://regdev-git.github.io/land.kuneberg/design/images/products/nestandartni-konstruktsii-2.webp",
+    "https://regdev-git.github.io/land.kuneberg/design/images/products/nestandartni-konstruktsii-3.webp"
+  ],
+  "description": "Нестандартні меблі з нержавіючої сталі, виготовлені за індивідуальними вимогами: Г-подібні ніжки, полиці нестандартної форми, вирізи під комунікації, радіуси або скоси деталей. Конструкція адаптується під особливості приміщення замовника.",
+  "sku": "KNB-CST-001",
+  "brand": {"@type": "Brand", "name": "KUNEBERG"},
+  "offers": {
+    "@type": "Offer",
+    "url": "https://regdev-git.github.io/land.kuneberg/design/nestandartni-konstruktsii.html",
+    "priceCurrency": "UAH",
+    "price": "2000",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+</script>
+
+</body>
+</html>
