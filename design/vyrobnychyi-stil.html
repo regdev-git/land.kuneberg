@@ -43,7 +43,7 @@ button{font-family:inherit;}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
 
 /* header */
-.header{position:sticky;top:0;z-index:40;background:rgba(247,245,242,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;}
+.header{position:sticky;top:0;z-index:40;background:rgba(247,245,242,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;overflow-anchor:none;}
 .header .wrap{max-width:1440px;}
 .header.scrolled{border-color:var(--line);box-shadow:0 8px 24px -20px rgba(0,0,0,.4);}
 @media (min-width:681px){
@@ -221,16 +221,16 @@ window.addEventListener('pageshow', function(){ window.scrollTo({top:0, left:0, 
 <!-- ================= HEADER ================= -->
 <header class="header" id="siteHeader">
   <div class="wrap header-inner">
-    <img class="logo-img" src="images/logo-mono.webp" alt="KUNEBERG">
+    <a href="index.html" aria-label="На головну" style="display:inline-flex;"><img class="logo-img" src="images/logo-mono.webp" alt="KUNEBERG"></a>
     <nav class="nav">
       <a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a>
     </nav>
     <div class="header-right">
       <div class="lang">UA / RU</div>
-      <div class="phone">
+      <a class="phone" href="tel:+380678992000">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         +38 (067) 899-20-00
-      </div>
+      </a>
       <div class="messengers">
         <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
         <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
@@ -328,7 +328,7 @@ window.addEventListener('pageshow', function(){ window.scrollTo({top:0, left:0, 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="wrap footer-inner">
-    <img class="footer-logo" src="images/logo-mono.webp" alt="KUNEBERG">
+    <a href="index.html" aria-label="На головну" style="display:inline-flex;"><img class="footer-logo" src="images/logo-mono.webp" alt="KUNEBERG"></a>
     <nav class="footer-nav"><a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a></nav>
     <div style="display:flex;align-items:center;gap:18px;">
       <div class="socials">
@@ -418,7 +418,7 @@ document.addEventListener('keydown', function(e){
 // ---------- header scroll shrink ----------
 var header = document.getElementById('siteHeader');
 window.addEventListener('scroll', function(){
-  header.classList.toggle('scrolled', window.scrollY > 10);
+  if(window.scrollY > 24){ header.classList.add('scrolled'); } else if(window.scrollY < 8){ header.classList.remove('scrolled'); }
 });
 
 // ---------- consult popup ----------

@@ -52,7 +52,7 @@ button{font-family:inherit;}
 .link-arrow:hover svg{transform:translateX(3px);}
 
 /* header */
-.header{position:sticky;top:0;z-index:40;background:rgba(247,245,242,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;}
+.header{position:sticky;top:0;z-index:40;background:rgba(247,245,242,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;overflow-anchor:none;}
 .header .wrap{max-width:1440px;}
 .header.scrolled{border-color:var(--line);box-shadow:0 8px 24px -20px rgba(0,0,0,.4);}
 @media (min-width:681px){
@@ -224,7 +224,8 @@ button{font-family:inherit;}
 .contact-row svg{flex-shrink:0;color:var(--orange);}
 .contact-row:last-of-type{border-bottom:none;}
 .delivery-badge{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px 18px;background:var(--orange-tint);border-radius:var(--r-sm);color:var(--orange-dark);}
-.map-placeholder{height:320px;border-radius:var(--r-card);background:linear-gradient(135deg,#efece6,#e2ddd3);border:1px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;text-align:center;}
+.map-placeholder{height:320px;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);}
+.map-placeholder iframe{width:100%;height:100%;border:0;display:block;}
 
 /* footer */
 .footer{background:var(--dark);color:#cfc9be;padding:56px 0 0;}
@@ -308,20 +309,29 @@ button{font-family:inherit;}
 </style>
 </head>
 <body>
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+if (!location.hash) {
+  window.scrollTo({top:0, left:0, behavior:'instant'});
+  window.addEventListener('pageshow', function(){
+    if (!location.hash) { window.scrollTo({top:0, left:0, behavior:'instant'}); }
+  });
+}
+</script>
 
 <!-- ================= HEADER ================= -->
 <header class="header" id="siteHeader">
   <div class="wrap header-inner">
-    <img class="logo-img" src="images/logo-mono.webp" alt="KUNEBERG">
+    <a href="#" class="js-scroll-top" aria-label="На головну" style="display:inline-flex;"><img class="logo-img" src="images/logo-mono.webp" alt="KUNEBERG"></a>
     <nav class="nav">
       <a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
     </nav>
     <div class="header-right">
       <div class="lang">UA / RU</div>
-      <div class="phone">
+      <a class="phone" href="tel:+380678992000">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         +38 (067) 899-20-00
-      </div>
+      </a>
       <div class="messengers">
         <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
         <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
@@ -663,7 +673,7 @@ button{font-family:inherit;}
       <h2 class="h2" style="color:#fff;">Розкажіть, що потрібно виготовити – допоможемо визначити конструкцію та розрахувати вартість</h2>
       <p class="sub" style="margin-bottom:0;color:#d8d3c9;">Маєте креслення – прикріпіть його. Є лише розміри чи фото – надсилайте. Ще не визначились – просто опишіть задачу.</p>
     </div>
-    <div class="form-card" style="padding:26px 28px;display:grid;grid-template-columns:1fr 1fr 1.6fr auto auto;gap:18px;align-items:end;" id="finalFormCard">
+    <div class="form-card" style="padding:26px 28px;display:grid;grid-template-columns:1fr 1fr 1.6fr auto auto;gap:18px;align-items:start;" id="finalFormCard">
       <div class="form-field" style="margin-bottom:0;"><span class="form-field-label">Ваше ім'я<span class="required-mark">*</span></span><input class="input-line" type="text" data-required="true"><div class="field-error-msg">Будь ласка, вкажіть ваше ім'я</div></div>
       <div class="form-field" style="margin-bottom:0;"><span class="form-field-label">Телефон<span class="required-mark">*</span></span><input class="input-line phone-input" type="tel" inputmode="numeric" placeholder="+38 (0__) ___-__-__" autocomplete="tel" maxlength="19" data-required="true"><div class="field-error-msg">Будь ласка, вкажіть номер телефону</div></div>
       <div class="form-field" style="margin-bottom:0;"><span class="form-field-label">Розміри / коментар</span><input class="input-line" type="text"></div>
@@ -675,7 +685,10 @@ button{font-family:inherit;}
         </div>
         <input type="file" hidden>
       </label>
-      <button class="btn btn-primary" style="height:48px;" id="finalFormSubmit">Отримати прорахунок</button>
+      <div>
+        <span class="form-field-label" style="visibility:hidden;">Дія</span>
+        <button class="btn btn-primary" style="height:48px;" id="finalFormSubmit">Отримати прорахунок</button>
+      </div>
     </div>
   </div>
 </section>
@@ -702,14 +715,14 @@ button{font-family:inherit;}
     </div>
   </div>
   <div class="wrap">
-    <div class="map-placeholder">GOOGLE MAP – інтерактивна карта з геоміткою виробництва / офісу<br>(вставляється окремим embed-кодом)</div>
+    <div class="map-placeholder"><iframe src="https://maps.google.com/maps?q=%D0%9A%D0%B8%D1%97%D0%B2%2C%20%D0%B2%D1%83%D0%BB.%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D1%8F%20%D0%A1%D1%82%D1%83%D1%81%D0%B0%2C%2035-%D0%91%2C%20%D0%91%D1%96%D0%B7%D0%BD%D0%B5%D1%81%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%20B1&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="KUNEBERG на карті"></iframe></div>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="wrap footer-inner">
-    <img class="footer-logo" src="images/logo-mono.webp" alt="KUNEBERG">
+    <a href="#" class="js-scroll-top" aria-label="На головну" style="display:inline-flex;"><img class="footer-logo" src="images/logo-mono.webp" alt="KUNEBERG"></a>
     <nav class="footer-nav"><a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a></nav>
     <div style="display:flex;align-items:center;gap:18px;">
       <div class="socials">
@@ -1096,7 +1109,15 @@ FAQ.forEach(function(item, i){
 // ---------- header scroll shadow ----------
 var header = document.getElementById('siteHeader');
 window.addEventListener('scroll', function(){
-  header.classList.toggle('scrolled', window.scrollY > 8);
+  if(window.scrollY > 24){ header.classList.add('scrolled'); } else if(window.scrollY < 8){ header.classList.remove('scrolled'); }
+});
+
+// ---------- logo click: smooth scroll to top ----------
+document.querySelectorAll('.js-scroll-top').forEach(function(el){
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
 });
 
 // ---------- phone number mask: +38 (0__) ___-__-__ ----------
