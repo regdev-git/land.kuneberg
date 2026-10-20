@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="utf-8">
+<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
 <title>KUNEBERG Landing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -47,6 +48,7 @@ button{font-family:inherit;}
 .btn-sm{padding:11px 20px;font-size:12.5px;}
 .btn-block{width:100%;}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.cta-row .btn-primary{box-shadow:none;}
 .link-arrow{font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px;color:var(--ink);}
 .link-arrow svg{transition:transform .15s ease;}
 .link-arrow:hover svg{transform:translateX(3px);}
@@ -60,6 +62,7 @@ button{font-family:inherit;}
   .header.scrolled{border-bottom-color:transparent;box-shadow:0 12px 32px -20px rgba(25,20,15,.28);}
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:82px;gap:24px;transition:height .25s ease;}
+.header-inner > a:first-child{flex-shrink:0;}
 .header.scrolled .header-inner{height:68px;}
 .logo-img{height:34px;width:auto;flex-shrink:0;transition:height .25s ease;}
 .header.scrolled .logo-img{height:28px;}
@@ -71,13 +74,29 @@ button{font-family:inherit;}
 .msg-icon{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-soft);transition:.15s;}
 .msg-icon:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
 .lang{font-size:12px;color:var(--muted);font-weight:700;border:1px solid var(--line-strong);border-radius:var(--r-btn);padding:7px 12px;white-space:nowrap;}
+.lang a{color:inherit;opacity:.5;}
+.lang a.active{opacity:1;color:var(--ink);}
+.lang a:hover{opacity:1;}
 .burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.mobile-nav-overlay{position:fixed;inset:0;background:#fff;color:var(--ink);z-index:110;display:flex;flex-direction:column;padding:22px 24px 28px;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.4,0,.2,1), visibility 0s linear .32s;box-shadow:-16px 0 40px -20px rgba(25,20,15,.3);}
+.mobile-nav-overlay.open{transform:translateX(0);visibility:visible;transition:transform .32s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s;}
+.mobile-nav-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;}
+.mobile-nav-logo{height:26px;}
+.mobile-nav-close{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);flex-shrink:0;}
+.mobile-nav-links{display:flex;flex-direction:column;margin-bottom:28px;}
+.mobile-nav-links a{color:var(--ink);font-size:21px;font-weight:700;padding:15px 0;border-bottom:1px solid var(--line);}
+.mobile-nav-bottom{margin-top:auto;display:flex;flex-direction:column;gap:18px;padding-top:24px;}
+.mobile-nav-bottom .phone{color:var(--ink);}
+.mobile-nav-bottom .messengers{display:flex;gap:10px;}
+.mobile-nav-bottom .msg-icon{border-color:var(--line-strong);color:var(--ink-soft);}
+.mobile-nav-bottom .lang{color:var(--muted);border-color:var(--line-strong);align-self:flex-start;}
+.mobile-nav-bottom .btn{width:100%;max-width:342px;margin-left:auto;margin-right:auto;}
 
 /* hero */
 .hero{position:relative;overflow:hidden;background:#111;}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg, rgba(10,9,7,.88) 0%, rgba(10,9,7,.68) 32%, rgba(10,9,7,.34) 60%, rgba(10,9,7,.08) 100%);}
-.hero-inner{position:relative;padding:78px 0 150px;}
+.hero-inner{position:relative;padding-top:78px;padding-bottom:150px;}
 .hero-content{max-width:640px;}
 .hero .h1{color:#fff;}
 .hero .sub{color:#e4e1db;}
@@ -89,6 +108,7 @@ button{font-family:inherit;}
 .stat-heading{font-size:16.5px;font-weight:800;line-height:1.3;margin-bottom:6px;}
 .stat-num{display:block;}
 .stat-label{display:block;}
+.stat-heading .stat-num, .stat-heading .stat-label{white-space:nowrap;}
 .stat-desc{font-size:12px;color:var(--muted);line-height:1.4;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}
 
 /* cards / grid */
@@ -114,6 +134,8 @@ button{font-family:inherit;}
 .tag-item{display:flex;gap:12px;font-size:14px;line-height:1.5;margin-bottom:14px;color:var(--ink-soft);align-items:flex-start;}
 .tag-num{width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex-shrink:0;margin-top:1px;}
 .rounded-photo{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);}
+.production-slider-wrap{position:relative;}
+.production-slider-wrap .slider-arrow{display:none;}
 .rounded-photo img{width:100%;height:100%;object-fit:cover;}
 
 /* block4 segment tiles */
@@ -206,7 +228,8 @@ button{font-family:inherit;}
   .testi-card{flex-basis:calc(50% - 12px);}
 }
 @media (max-width:680px){
-  .testi-card{flex-basis:88%;}
+  .testi-slider{padding:0 6%;}
+  .testi-card{flex-basis:88%;scroll-snap-align:center;}
   .testi-arrow.prev{left:0;}
   .testi-arrow.next{right:0;}
 }
@@ -223,6 +246,8 @@ button{font-family:inherit;}
 .contact-row{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:600;padding:13px 0;border-bottom:1px solid var(--line);}
 .contact-row svg{flex-shrink:0;color:var(--orange);}
 .contact-row:last-of-type{border-bottom:none;}
+.contact-row a{color:inherit;text-decoration:none;}
+.contact-row a:hover{color:var(--orange);}
 .delivery-badge{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px 18px;background:var(--orange-tint);border-radius:var(--r-sm);color:var(--orange-dark);}
 .map-placeholder{height:320px;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);}
 .map-placeholder iframe{width:100%;height:100%;border:0;display:block;}
@@ -235,6 +260,7 @@ button{font-family:inherit;}
 .socials{display:flex;gap:10px;}
 .footer .msg-icon{border-color:var(--dark-line);color:#cfc9be;}
 .footer .lang{border-color:var(--dark-line);color:#cfc9be;}
+.footer .lang a.active{color:#fff;}
 .copyright{font-size:12px;color:#8b8579;padding:22px 0;text-align:center;}
 .footer-logo{height:32px;filter:invert(1) brightness(1.6);}
 
@@ -268,6 +294,10 @@ button{font-family:inherit;}
 .input-line.field-error{border-color:var(--orange);}
 .field-error-msg{display:none;color:var(--orange-dark);font-size:11.5px;margin-top:6px;}
 .field-error-msg.show{display:block;}
+.form-success{text-align:center;padding:14px 0;}
+.form-success-icon{width:56px;height:56px;border-radius:50%;background:var(--orange-tint);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.form-success h3{font-size:21px;font-weight:800;margin:0 0 10px;color:var(--ink);}
+.form-success p{font-size:14px;color:var(--muted);line-height:1.6;margin:0;max-width:360px;margin-left:auto;margin-right:auto;}
 
 @media (max-width:1380px){
   .header-right .phone, .header-right .messengers{display:none;}
@@ -285,12 +315,16 @@ button{font-family:inherit;}
   .modal-gallery{min-height:280px;}
   .steps-row{grid-template-columns:1fr;}
   .step-arrow{display:none;}
+  #finalFormCard{grid-template-columns:1fr 1fr!important;}
+  .nav, .header-right .phone, .header-right .messengers, .header-right .lang{display:none;}
+  .burger{display:flex;}
+}
+@media (max-width:480px){
+  .header-right .btn-primary{display:none;}
 }
 @media (max-width:680px){
   .calc-sticky-col{position:static;}
   .custom-sticky-col{position:static;}
-  .nav, .header-right .phone, .header-right .messengers, .header-right .lang{display:none;}
-  .burger{display:flex;}
   .h1{font-size:32px;}
   .h2{font-size:25px;}
   .section{padding:64px 0;}
@@ -299,12 +333,28 @@ button{font-family:inherit;}
   .material-badge{right:14px;white-space:normal;font-size:11px;}
   .stat-bar{grid-template-columns:1fr 1fr;gap:14px;}
   .stat-item{padding:16px;gap:12px;}
+  .stat-heading{font-size:12px;}
+  .stat-desc{font-size:11px;}
+  .catalog-text{font-size:13px!important;}
+  .contact-phone-text{font-size:13.5px;}
+  .contact-row{font-size:13.5px;}
+  .delivery-badge span{font-size:13.5px!important;}
+  .grid-4.production-stats{grid-template-columns:repeat(2,1fr);gap:28px 20px;}
+  .production-stats .stat-num{font-size:21px!important;}
   .stat-icon{width:44px;height:44px;}
   .stat-icon svg{width:19px;height:19px;}
-  .stat-bar-wrap{margin-top:-124px;margin-bottom:36px;}
+  .stat-bar-wrap{margin-top:-124px;margin-bottom:64px;}
   .hero-inner{padding-bottom:110px;}
   .form-card{padding:24px;}
+  #finalFormCard{grid-template-columns:1fr!important;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
+  .btn:not(.btn-sm){width:100%;max-width:342px;display:flex;margin-left:auto;margin-right:auto;}
+  .cta-row{justify-content:flex-start;}
+  .cta-row .btn{margin-left:0;margin-right:0;}
+  .production-gallery{display:flex;grid-template-columns:none;overflow-x:auto;gap:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .production-gallery::-webkit-scrollbar{display:none;}
+  .production-gallery .rounded-photo{flex:0 0 100%;scroll-snap-align:center;}
+  .production-slider-wrap .slider-arrow{display:flex;}
 }
 </style>
 </head>
@@ -327,14 +377,14 @@ if (!location.hash) {
       <a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
     </nav>
     <div class="header-right">
-      <div class="lang">UA / RU</div>
+      <div class="lang"><a href="index.html" class="active">UA</a> / <a href="index-ru.html">RU</a></div>
       <a class="phone" href="tel:+380678992000">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         +38 (067) 899-20-00
       </a>
       <div class="messengers">
-        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
-        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+        <a class="msg-icon" title="Telegram" href="https://t.me/kunebergcomua" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+        <a class="msg-icon" title="Viber" href="viber://chat?number=%2B380678992000"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></a>
       </div>
       <button class="btn btn-primary btn-sm js-open-calc">Отримати прорахунок</button>
       <div class="burger" id="burgerBtn">
@@ -343,6 +393,30 @@ if (!location.hash) {
     </div>
   </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <div class="mobile-nav-top">
+    <a href="#" class="js-scroll-top" aria-label="На головну" style="display:inline-flex;"><img class="mobile-nav-logo" src="images/logo-mono.webp" alt="KUNEBERG"></a>
+    <div class="mobile-nav-close" id="mobileNavClose">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </div>
+  </div>
+  <nav class="mobile-nav-links">
+    <a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="lang"><a href="index.html" class="active">UA</a> / <a href="index-ru.html">RU</a></div>
+    <a class="phone" href="tel:+380678992000">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      +38 (067) 899-20-00
+    </a>
+    <div class="messengers">
+      <a class="msg-icon" title="Telegram" href="https://t.me/kunebergcomua" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+      <a class="msg-icon" title="Viber" href="viber://chat?number=%2B380678992000"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></a>
+    </div>
+    <button class="btn btn-primary btn-sm js-open-calc">Отримати прорахунок</button>
+  </div>
+</div>
+
 
 <!-- ================= 01 · HERO ================= -->
 <section class="hero">
@@ -391,9 +465,9 @@ if (!location.hash) {
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:44px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap;gap:20px;">
       <div style="display:flex;align-items:center;gap:22px;">
         <div style="width:138px;height:118px;border:1px solid var(--line);border-radius:var(--r-img);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/catalog-mockup.webp" alt="Каталог продукції KUNEBERG" style="height:88%;width:auto;object-fit:contain;display:block;"></div>
-        <p style="font-size:15px;font-weight:600;margin:0;max-width:500px;">Хочете ознайомитись з усім асортиментом? Надішліть запит&nbsp;– ми вишлемо на вашу пошту весь каталог нашої продукції.</p>
+        <p class="catalog-text" style="font-size:15px;font-weight:600;margin:0;max-width:500px;">Хочете ознайомитись з усім асортиментом? Надішліть запит&nbsp;– ми вишлемо на вашу пошту весь каталог нашої продукції.</p>
       </div>
-      <button class="btn btn-primary js-open-catalog" style="margin-left:auto;">Отримати каталог</button>
+      <button class="btn btn-primary js-open-catalog">Отримати каталог</button>
     </div>
   </div>
 </section>
@@ -479,9 +553,9 @@ if (!location.hash) {
 <section class="section section-white" id="production">
   <div class="wrap">
     <div class="eyebrow">Про виробництво та компанію</div>
-    <h2 class="h2">24 роки виготовляємо професійні меблі з нержавіючої сталі для HoReCa</h2>
+    <h2 class="h2">24 роки виготовляємо професійні меблі з нержавіючої сталі для&nbsp;HoReCa</h2>
     <p class="sub">KUNEBERG – український виробник, який виготовляє індивідуальні конструкції під конкретні параметри кожного об'єкта для професійних кухонь і харчових об'єктів.</p>
-    <div class="grid grid-4" style="margin-bottom:40px;">
+    <div class="grid grid-4 production-stats" style="margin-bottom:40px;">
       <div><div class="stat-num" style="font-size:26px;font-weight:800;">24 роки</div><div class="stat-label">досвіду</div></div>
       <div><div class="stat-num" style="font-size:26px;font-weight:800;">40 000+</div><div class="stat-label">клієнтів за час роботи</div></div>
       <div><div class="stat-num" style="font-size:26px;font-weight:800;">700–800</div><div class="stat-label">виробів на місяць</div></div>
@@ -500,10 +574,14 @@ if (!location.hash) {
       </div>
       <p class="sub" style="margin-bottom:0;">Використовуємо сучасне обладнання на базі верстатів з ЧПУ та лазерну різку, що значно підвищує точність і якість продукції.</p>
     </div>
-    <div class="grid grid-3">
-      <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo1.webp" alt="Виробництво KUNEBERG"></div>
-      <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo2.webp" alt="Виробництво KUNEBERG"></div>
-      <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo3.webp" alt="Виробництво KUNEBERG"></div>
+    <div class="production-slider-wrap">
+      <div class="grid grid-3 production-gallery" id="productionGallery">
+        <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo1.webp" alt="Виробництво KUNEBERG"></div>
+        <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo2.webp" alt="Виробництво KUNEBERG"></div>
+        <div class="rounded-photo" style="aspect-ratio:4/3;"><img src="images/vyrobnytstvo3.webp" alt="Виробництво KUNEBERG"></div>
+      </div>
+      <button class="slider-arrow prev" id="productionPrev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+      <button class="slider-arrow next" id="productionNext"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191715" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
     </div>
   </div>
 </section>
@@ -631,13 +709,13 @@ if (!location.hash) {
 <section class="section section-white">
   <div class="wrap">
     <div class="eyebrow">Чому KUNEBERG</div>
-    <h2 class="h2">Не просто меблі з нержавійки – виробниче рішення під вашу задачу</h2>
+    <h2 class="h2">Не просто меблі з нержавійки – виробниче рішення під&nbsp;вашу&nbsp;задачу</h2>
     <div class="grid grid-5" style="margin-top:32px;">
-      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path><circle cx="12" cy="12" r="5"></circle><line x1="9.5" y1="9.5" x2="14.5" y2="14.5"></line><line x1="14.5" y1="9.5" x2="9.5" y2="14.5"></line></svg></div><h3 class="h3" style="font-size:15px;">Виготовляємо самі</h3><p class="card-text" style="margin-bottom:0;">Контролюємо весь шлях виробу.</p></div>
-      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18M9 21V9"></path><path d="M3 3h18v18H3z"></path></svg></div><h3 class="h3" style="font-size:15px;">Під ваш простір</h3><p class="card-text" style="margin-bottom:0;">Виготовляємо під точні розміри вашого простору.</p></div>
-      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg></div><h3 class="h3" style="font-size:15px;">24 роки досвіду</h3><p class="card-text" style="margin-bottom:0;">Практичне розуміння HoReCa.</p></div>
-      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="3.5" width="13" height="13" rx="6.5"></rect><circle cx="8" cy="10" r="3.3"></circle><circle cx="8" cy="10" r="0.8"></circle><path d="M12.3 4.8l1.8-1.8a1 1 0 0 1 1.4 0l1.3 1.3a1 1 0 0 1 0 1.4l-1.8 1.8"></path><path d="M10.5 13.5h12v4h-12z"></path><line x1="12.5" y1="13.5" x2="12.5" y2="15.5"></line><line x1="15" y1="13.5" x2="15" y2="16"></line><line x1="17.5" y1="13.5" x2="17.5" y2="15.5"></line><line x1="20" y1="13.5" x2="20" y2="16"></line></svg></div><h3 class="h3" style="font-size:15px;">Виїзд замірника</h3><p class="card-text" style="margin-bottom:0;">Виїзд замірника на ваш об'єкт при необхідності.</p></div>
-      <div><div class="icon-circle sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></div><h3 class="h3" style="font-size:15px;">Доставка по Україні</h3><p class="card-text" style="margin-bottom:0;">Відправлення в будь-який регіон.</p></div>
+      <div><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path><circle cx="12" cy="12" r="5"></circle><line x1="9.5" y1="9.5" x2="14.5" y2="14.5"></line><line x1="14.5" y1="9.5" x2="9.5" y2="14.5"></line></svg></div><h3 class="h3" style="font-size:15px;">Виготовляємо самі</h3><p class="card-text" style="margin-bottom:0;">Контролюємо весь шлях виробу.</p></div>
+      <div><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18M9 21V9"></path><path d="M3 3h18v18H3z"></path></svg></div><h3 class="h3" style="font-size:15px;">Під ваш простір</h3><p class="card-text" style="margin-bottom:0;">Виготовляємо під точні розміри вашого простору.</p></div>
+      <div><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg></div><h3 class="h3" style="font-size:15px;">24 роки досвіду</h3><p class="card-text" style="margin-bottom:0;">Практичне розуміння HoReCa.</p></div>
+      <div><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h7l4 4v7.5a3.5 3.5 0 0 1-3.5 3.5h-8A3.5 3.5 0 0 1 2 13.5v-7.5a4 4 0 0 1 4-4z"></path><circle cx="8" cy="9.5" r="3"></circle><circle cx="8" cy="9.5" r="1.2"></circle><circle cx="5.3" cy="14.3" r="0.5" fill="currentColor" stroke="none"></circle><circle cx="9" cy="14.3" r="0.5" fill="currentColor" stroke="none"></circle><path d="M13.5 17h9.5"></path><path d="M16.5 15.3v3.4"></path><path d="M19 15.3v3.4"></path><path d="M21.5 15.3v3.4"></path></svg></div><h3 class="h3" style="font-size:15px;">Виїзд замірника</h3><p class="card-text" style="margin-bottom:0;">Виїзд замірника на ваш об'єкт при необхідності.</p></div>
+      <div><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></div><h3 class="h3" style="font-size:15px;">Доставка по Україні</h3><p class="card-text" style="margin-bottom:0;">Відправлення в будь-який регіон.</p></div>
     </div>
   </div>
 </section>
@@ -699,11 +777,11 @@ if (!location.hash) {
     <div>
       <div class="eyebrow">Контакти</div>
       <h2 class="h2">Зв'яжіться з KUNEBERG</h2>
-      <div class="contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +38 (067) 899-20-00, +38 (095) 388-30-00</div>
+      <div class="contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span class="contact-phone-text">+38 (067) 899-20-00, +38 (095) 388-30-00</span></div>
       <div class="contact-row" style="border-bottom:none;padding-bottom:0;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Графік роботи: пн–пт з 09:00 до 18:00*</div>
       <p style="font-size:12.8px;color:var(--muted);line-height:1.6;margin:10px 0 0;padding-bottom:13px;border-bottom:1px solid var(--line);">* – залишайте заявку через форми на сайті в тому числі в неробочий час і в вихідні – на наступний робочий день та в понеділок наші спеціалісти з вами зв'яжуться та проконсультують.</p>
       <div class="contact-row" style="margin-top:6px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" ry="3"></rect><path d="M3 7l9 6 9-6"></path></svg> zaproskuneberg@gmail.com</div>
-      <div class="contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg> Telegram / Viber</div>
+      <div class="contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg> <a href="https://t.me/kunebergcomua" target="_blank" rel="noopener">Telegram</a> / <a href="viber://chat?number=%2B380678992000">Viber</a></div>
       <div class="contact-row" style="align-items:flex-start;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> м. Київ, вул. Василя Стуса, 35-Б,<br>оф. 513, Бізнес центр B1</div>
       <div class="delivery-badge">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="6" width="15" height="10" rx="1"></rect><path d="M16 9h3l3 3v4h-6z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
@@ -726,12 +804,12 @@ if (!location.hash) {
     <nav class="footer-nav"><a href="#products">Продукція</a><a href="#custom">Під замовлення</a><a href="#cases">Наші роботи</a><a href="#production">Виробництво</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a></nav>
     <div style="display:flex;align-items:center;gap:18px;">
       <div class="socials">
-        <div class="msg-icon" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></div>
-        <div class="msg-icon" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
-        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+        <a class="msg-icon" title="Instagram" href="https://www.instagram.com/kuneberg.com.ua/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+        <!-- Facebook: <div class="msg-icon" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div> -->
+        <a class="msg-icon" title="Telegram" href="https://t.me/kunebergcomua" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+        <a class="msg-icon" title="Viber" href="viber://chat?number=%2B380678992000"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></a>
       </div>
-      <div class="lang">UA / RU</div>
+      <div class="lang"><a href="index.html" class="active">UA</a> / <a href="index-ru.html">RU</a></div>
     </div>
   </div>
   <div class="wrap"><div class="copyright">© KUNEBERG – виробництво професійних меблів з нержавіючої сталі для HoReCa</div></div>
@@ -1043,10 +1121,10 @@ renderCaseInfo();
 
 // ---------- testimonials slider ----------
 var TESTIMONIALS = [
-  {img:'vidguk4.webp'},
-  {img:'vidguk1.webp'},
-  {img:'vidguk2.webp'},
-  {img:'vidguk3.webp'}
+  {img:'vidguk4.webp', name:'Олексій', place:'Кондитерська, Київ'},
+  {img:'vidguk2.webp', name:'Олеся', place:'Дитячий садок, Київ'},
+  {img:'vidguk3.webp', name:'Олександр Б.', place:'Корпоративна їжа, Київ'},
+  {img:'vidguk1.webp', name:'Сергій', place:'Ресторан, Київ'}
 ];
 var TESTI_COUNT = TESTIMONIALS.length;
 var testiSlider = document.getElementById('testiSlider');
@@ -1054,8 +1132,8 @@ var testiSlider = document.getElementById('testiSlider');
 function testiCardHTML(t){
   return '<div class="card testi-card" style="padding:16px;">'+
     '<img src="images/testimonials/'+t.img+'" alt="Відгук клієнта" style="width:100%;border-radius:var(--r-img);display:block;margin-bottom:16px;">'+
-    '<div style="font-weight:700;font-size:14px;">Ім\'я Прізвище</div>'+
-    '<div class="card-text" style="margin:2px 0 0;">Назва закладу, місто</div>'+
+    '<div style="font-weight:700;font-size:14px;">'+t.name+'</div>'+
+    '<div class="card-text" style="margin:2px 0 0;">'+t.place+'</div>'+
   '</div>';
 }
 // render 3 copies back-to-back so looping can jump between identical sets seamlessly
@@ -1070,11 +1148,21 @@ function testiStep(){
   var gap = parseFloat(getComputedStyle(testiSlider).gap) || 24;
   return card.getBoundingClientRect().width + gap;
 }
+function testiCenterOffset(card){
+  if(getComputedStyle(card).scrollSnapAlign !== 'center') return 0;
+  return (testiSlider.clientWidth - card.getBoundingClientRect().width) / 2;
+}
 function testiResetToMiddle(){
   var cards = testiSlider.querySelectorAll('.testi-card');
-  testiSlider.scrollLeft = cards[TESTI_COUNT].offsetLeft;
+  var card = cards[TESTI_COUNT];
+  if(!card || testiSlider.clientWidth < 50) return;
+  testiSlider.scrollLeft = card.offsetLeft - testiCenterOffset(card);
 }
 testiResetToMiddle();
+setTimeout(testiResetToMiddle, 60);
+setTimeout(testiResetToMiddle, 400);
+setTimeout(testiResetToMiddle, 1200);
+window.addEventListener('load', testiResetToMiddle);
 window.addEventListener('resize', function(){ testiResetToMiddle(); });
 
 document.getElementById('testiPrev').onclick = function(){
@@ -1083,10 +1171,23 @@ document.getElementById('testiPrev').onclick = function(){
 document.getElementById('testiNext').onclick = function(){
   testiSlider.scrollBy({left: testiStep(), behavior: 'smooth'});
 };
+
+// ---------- production photos slider (mobile) ----------
+var productionGallery = document.getElementById('productionGallery');
+function productionStep(){
+  return productionGallery.querySelector('.rounded-photo').getBoundingClientRect().width;
+}
+document.getElementById('productionPrev').onclick = function(){
+  productionGallery.scrollBy({left: -productionStep(), behavior: 'smooth'});
+};
+document.getElementById('productionNext').onclick = function(){
+  productionGallery.scrollBy({left: productionStep(), behavior: 'smooth'});
+};
 testiSlider.addEventListener('scrollend', function(){
   var cards = testiSlider.querySelectorAll('.testi-card');
-  var setStart = cards[TESTI_COUNT].offsetLeft;
-  var setEnd = cards[TESTI_COUNT*2].offsetLeft;
+  var offset = testiCenterOffset(cards[TESTI_COUNT]);
+  var setStart = cards[TESTI_COUNT].offsetLeft - offset;
+  var setEnd = cards[TESTI_COUNT*2].offsetLeft - offset;
   var setWidth = setEnd - setStart;
   if(testiSlider.scrollLeft < setStart - 1){
     testiSlider.scrollLeft += setWidth;
@@ -1111,6 +1212,19 @@ var header = document.getElementById('siteHeader');
 window.addEventListener('scroll', function(){
   if(window.scrollY > 24){ header.classList.add('scrolled'); } else if(window.scrollY < 8){ header.classList.remove('scrolled'); }
 });
+
+// ---------- mobile nav drawer ----------
+var mobileNavOverlay = document.getElementById('mobileNavOverlay');
+var burgerBtn = document.getElementById('burgerBtn');
+var mobileNavClose = document.getElementById('mobileNavClose');
+function openMobileNav(){ mobileNavOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMobileNav(){ mobileNavOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+if(burgerBtn){ burgerBtn.addEventListener('click', openMobileNav); }
+if(mobileNavClose){ mobileNavClose.addEventListener('click', closeMobileNav); }
+if(mobileNavOverlay){
+  mobileNavOverlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMobileNav); });
+  mobileNavOverlay.querySelector('.mobile-nav-bottom .btn').addEventListener('click', closeMobileNav);
+}
 
 // ---------- logo click: smooth scroll to top ----------
 document.querySelectorAll('.js-scroll-top').forEach(function(el){
@@ -1189,7 +1303,7 @@ document.querySelectorAll('.phone-input').forEach(function(input){
 });
 
 // ---------- required-field validation ----------
-function wireRequiredValidation(container, submitBtn){
+function wireRequiredValidation(container, submitBtn, onValid){
   if(!container || !submitBtn) return;
   submitBtn.addEventListener('click', function(e){
     var fields = container.querySelectorAll('[data-required]');
@@ -1211,6 +1325,8 @@ function wireRequiredValidation(container, submitBtn){
       e.preventDefault();
       e.stopPropagation();
       firstInvalid.focus();
+    } else if(onValid){
+      onValid();
     }
   }, true);
   container.querySelectorAll('[data-required]').forEach(function(input){
@@ -1223,12 +1339,43 @@ function wireRequiredValidation(container, submitBtn){
     });
   });
 }
-wireRequiredValidation(document.getElementById('calcFormCard'), document.getElementById('calcFormSubmit'));
-wireRequiredValidation(document.getElementById('finalFormCard'), document.getElementById('finalFormSubmit'));
-wireRequiredValidation(calcModal, document.getElementById('calcModalSubmit'));
-wireRequiredValidation(discussModal, discussModalSubmit);
-wireRequiredValidation(consultModal, document.getElementById('consultModalSubmit'));
-wireRequiredValidation(catalogModal, document.getElementById('catalogModalSubmit'));
+
+// ---------- thank-you state ----------
+function showThankYou(scopeEl, keepCloseButton, message){
+  if(!scopeEl) return;
+  var closeBtn = keepCloseButton ? scopeEl.querySelector('.modal-close') : null;
+  scopeEl.innerHTML = '';
+  scopeEl.style.display = 'flex';
+  scopeEl.style.flexDirection = 'column';
+  scopeEl.style.justifyContent = 'center';
+  scopeEl.style.alignItems = 'center';
+  if(closeBtn) scopeEl.appendChild(closeBtn);
+  var success = document.createElement('div');
+  success.className = 'form-success';
+  success.innerHTML = '<div class="form-success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>'+
+    '<h3>Дякуємо!</h3>'+
+    '<p>'+(message || "Вашу заявку відправлено. Незабаром з вами зв'яжеться наш спеціаліст")+'</p>';
+  scopeEl.appendChild(success);
+}
+
+wireRequiredValidation(document.getElementById('calcFormCard'), document.getElementById('calcFormSubmit'), function(){
+  showThankYou(document.getElementById('calcFormCard'));
+});
+wireRequiredValidation(document.getElementById('finalFormCard'), document.getElementById('finalFormSubmit'), function(){
+  showThankYou(document.getElementById('finalFormCard'));
+});
+wireRequiredValidation(calcModal, document.getElementById('calcModalSubmit'), function(){
+  showThankYou(calcModal.querySelector('.cta-modal'), true);
+});
+wireRequiredValidation(discussModal, discussModalSubmit, function(){
+  showThankYou(discussModal.querySelector('.cta-modal'), true);
+});
+wireRequiredValidation(consultModal, document.getElementById('consultModalSubmit'), function(){
+  showThankYou(consultModal.querySelector('.cta-modal'), true);
+});
+wireRequiredValidation(catalogModal, document.getElementById('catalogModalSubmit'), function(){
+  showThankYou(catalogModal.querySelector('.cta-modal'), true);
+});
 </script>
 </body>
 </html>

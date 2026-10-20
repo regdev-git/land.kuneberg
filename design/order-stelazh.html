@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="utf-8">
+<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
 <title>Оформлення замовлення – KUNEBERG</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -42,6 +43,7 @@ button{font-family:inherit;}
   .header.scrolled{border-bottom-color:transparent;box-shadow:0 12px 32px -20px rgba(25,20,15,.28);}
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:82px;gap:24px;transition:height .25s ease;}
+.header-inner > a:first-child{flex-shrink:0;}
 .header.scrolled .header-inner{height:68px;}
 .logo-img{height:34px;width:auto;flex-shrink:0;transition:height .25s ease;}
 .header.scrolled .logo-img{height:28px;}
@@ -53,9 +55,26 @@ button{font-family:inherit;}
 .msg-icon{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-soft);transition:.15s;}
 .msg-icon:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
 .lang{font-size:12px;color:var(--muted);font-weight:700;border:1px solid var(--line-strong);border-radius:var(--r-btn);padding:7px 12px;white-space:nowrap;}
+.lang a{color:inherit;opacity:.5;}
+.lang a.active{opacity:1;color:var(--ink);}
+.lang a:hover{opacity:1;}
 .burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.mobile-nav-overlay{position:fixed;inset:0;background:#fff;color:var(--ink);z-index:110;display:flex;flex-direction:column;padding:22px 24px 28px;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.4,0,.2,1), visibility 0s linear .32s;box-shadow:-16px 0 40px -20px rgba(25,20,15,.3);}
+.mobile-nav-overlay.open{transform:translateX(0);visibility:visible;transition:transform .32s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s;}
+.mobile-nav-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;}
+.mobile-nav-logo{height:26px;}
+.mobile-nav-close{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);flex-shrink:0;}
+.mobile-nav-links{display:flex;flex-direction:column;margin-bottom:28px;}
+.mobile-nav-links a{color:var(--ink);font-size:21px;font-weight:700;padding:15px 0;border-bottom:1px solid var(--line);}
+.mobile-nav-bottom{margin-top:auto;display:flex;flex-direction:column;gap:18px;padding-top:24px;}
+.mobile-nav-bottom .phone{color:var(--ink);}
+.mobile-nav-bottom .messengers{display:flex;gap:10px;}
+.mobile-nav-bottom .msg-icon{border-color:var(--line-strong);color:var(--ink-soft);}
+.mobile-nav-bottom .lang{color:var(--muted);border-color:var(--line-strong);align-self:flex-start;}
+.mobile-nav-bottom .btn{width:100%;max-width:342px;margin-left:auto;margin-right:auto;}
 @media (max-width:1380px){.header-right .phone, .header-right .messengers{display:none;}}
-@media (max-width:680px){.nav, .header-right .phone, .header-right .messengers, .header-right .lang{display:none;}.burger{display:flex;}}
+@media (max-width:980px){.nav, .header-right .phone, .header-right .messengers, .header-right .lang{display:none;}.burger{display:flex;}}
+@media (max-width:480px){.header-right .btn-primary{display:none;}}
 
 /* footer */
 .footer{background:var(--dark);color:#cfc9be;padding:56px 0 0;}
@@ -65,6 +84,7 @@ button{font-family:inherit;}
 .socials{display:flex;gap:10px;}
 .footer .msg-icon{border-color:var(--dark-line);color:#cfc9be;}
 .footer .lang{border-color:var(--dark-line);color:#cfc9be;}
+.footer .lang a.active{color:#fff;}
 .copyright{font-size:12px;color:#8b8579;padding:22px 0;text-align:center;}
 .footer-logo{height:32px;filter:invert(1) brightness(1.6);}
 
@@ -81,9 +101,14 @@ button{font-family:inherit;}
 .required-mark{color:var(--orange);margin-left:3px;font-weight:700;}
 .field-error-msg{display:none;color:var(--orange-dark);font-size:11.5px;margin-top:6px;}
 .field-error-msg.show{display:block;}
+.form-success{text-align:center;padding:14px 0;}
+.form-success-icon{width:56px;height:56px;border-radius:50%;background:var(--orange-tint);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.form-success h3{font-size:21px;font-weight:800;margin:0 0 10px;color:var(--ink);}
+.form-success p{font-size:14px;color:var(--muted);line-height:1.6;margin:0;max-width:360px;margin-left:auto;margin-right:auto;}
 
 /* order page */
 .order-wrap{max-width:560px;margin:0 auto;padding:12px 24px 96px;}
+.order-wrap .form-success{margin-top:64px;}
 .order-title{font-size:26px;font-weight:800;margin:0 0 28px;letter-spacing:-0.012em;}
 .order-product{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:var(--r-card);padding:16px;margin-bottom:32px;background:#fff;}
 .order-product img{width:72px;height:72px;object-fit:cover;border-radius:var(--r-sm);flex-shrink:0;}
@@ -116,14 +141,14 @@ window.addEventListener('pageshow', function(){ window.scrollTo({top:0, left:0, 
       <a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a>
     </nav>
     <div class="header-right">
-      <div class="lang">UA / RU</div>
+      <div class="lang"><a href="order-stelazh.html" class="active">UA</a> / <a href="order-stelazh-ru.html">RU</a></div>
       <a class="phone" href="tel:+380678992000">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         +38 (067) 899-20-00
       </a>
       <div class="messengers">
-        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
-        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+        <a class="msg-icon" title="Telegram" href="https://t.me/kunebergcomua" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+        <a class="msg-icon" title="Viber" href="viber://chat?number=%2B380678992000"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></a>
       </div>
       <button class="btn btn-primary btn-sm">Отримати прорахунок</button>
       <div class="burger" id="burgerBtn">
@@ -132,6 +157,30 @@ window.addEventListener('pageshow', function(){ window.scrollTo({top:0, left:0, 
     </div>
   </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <div class="mobile-nav-top">
+    <a href="index.html" aria-label="На головну" style="display:inline-flex;"><img class="mobile-nav-logo" src="images/logo-mono.webp" alt="KUNEBERG"></a>
+    <div class="mobile-nav-close" id="mobileNavClose">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </div>
+  </div>
+  <nav class="mobile-nav-links">
+    <a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="lang"><a href="order-stelazh.html" class="active">UA</a> / <a href="order-stelazh-ru.html">RU</a></div>
+    <a class="phone" href="tel:+380678992000">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      +38 (067) 899-20-00
+    </a>
+    <div class="messengers">
+      <a class="msg-icon" title="Telegram" href="https://t.me/kunebergcomua" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+      <a class="msg-icon" title="Viber" href="viber://chat?number=%2B380678992000"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></a>
+    </div>
+    <button class="btn btn-primary btn-sm">Отримати прорахунок</button>
+  </div>
+</div>
+
 
 <!-- ================= ORDER ================= -->
 <div class="wrap order-wrap">
@@ -177,12 +226,12 @@ window.addEventListener('pageshow', function(){ window.scrollTo({top:0, left:0, 
     <nav class="footer-nav"><a href="index.html#products">Продукція</a><a href="index.html#custom">Під замовлення</a><a href="index.html#cases">Наші роботи</a><a href="index.html#production">Виробництво</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакти</a></nav>
     <div style="display:flex;align-items:center;gap:18px;">
       <div class="socials">
-        <div class="msg-icon" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></div>
-        <div class="msg-icon" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-        <div class="msg-icon" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
-        <div class="msg-icon" title="Viber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></div>
+        <a class="msg-icon" title="Instagram" href="https://www.instagram.com/kuneberg.com.ua/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+        <!-- Facebook: <div class="msg-icon" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div> -->
+        <a class="msg-icon" title="Telegram" href="https://t.me/kunebergcomua" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+        <a class="msg-icon" title="Viber" href="viber://chat?number=%2B380678992000"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5z"></path></svg></a>
       </div>
-      <div class="lang">UA / RU</div>
+      <div class="lang"><a href="order-stelazh.html" class="active">UA</a> / <a href="order-stelazh-ru.html">RU</a></div>
     </div>
   </div>
   <div class="wrap"><div class="copyright">© KUNEBERG – виробництво професійних меблів з нержавіючої сталі для HoReCa</div></div>
@@ -194,6 +243,19 @@ var header = document.getElementById('siteHeader');
 window.addEventListener('scroll', function(){
   if(window.scrollY > 24){ header.classList.add('scrolled'); } else if(window.scrollY < 8){ header.classList.remove('scrolled'); }
 });
+
+// ---------- mobile nav drawer ----------
+var mobileNavOverlay = document.getElementById('mobileNavOverlay');
+var burgerBtn = document.getElementById('burgerBtn');
+var mobileNavClose = document.getElementById('mobileNavClose');
+function openMobileNav(){ mobileNavOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMobileNav(){ mobileNavOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+if(burgerBtn){ burgerBtn.addEventListener('click', openMobileNav); }
+if(mobileNavClose){ mobileNavClose.addEventListener('click', closeMobileNav); }
+if(mobileNavOverlay){
+  mobileNavOverlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMobileNav); });
+  mobileNavOverlay.querySelector('.mobile-nav-bottom .btn').addEventListener('click', closeMobileNav);
+}
 
 // ---------- phone mask ----------
 function formatPhoneDigits(digits){
@@ -222,7 +284,7 @@ document.querySelectorAll('.phone-input').forEach(function(input){
 });
 
 // ---------- required-field validation ----------
-function wireRequiredValidation(container, submitBtn){
+function wireRequiredValidation(container, submitBtn, onValid){
   if(!container || !submitBtn) return;
   submitBtn.addEventListener('click', function(e){
     var fields = container.querySelectorAll('[data-required]');
@@ -244,6 +306,8 @@ function wireRequiredValidation(container, submitBtn){
       e.preventDefault();
       e.stopPropagation();
       firstInvalid.focus();
+    } else if(onValid){
+      onValid();
     }
   }, true);
   container.querySelectorAll('[data-required]').forEach(function(input){
@@ -256,7 +320,27 @@ function wireRequiredValidation(container, submitBtn){
     });
   });
 }
-wireRequiredValidation(document.querySelector('.order-wrap'), document.getElementById('orderSubmit'));
+
+function showThankYou(scopeEl, keepCloseButton, message){
+  if(!scopeEl) return;
+  var closeBtn = keepCloseButton ? scopeEl.querySelector('.modal-close') : null;
+  scopeEl.innerHTML = '';
+  scopeEl.style.display = 'flex';
+  scopeEl.style.flexDirection = 'column';
+  scopeEl.style.justifyContent = 'center';
+  scopeEl.style.alignItems = 'center';
+  if(closeBtn) scopeEl.appendChild(closeBtn);
+  var success = document.createElement('div');
+  success.className = 'form-success';
+  success.innerHTML = '<div class="form-success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>'+
+    '<h3>Дякуємо!</h3>'+
+    '<p>'+(message || "Вашу заявку відправлено. Незабаром з вами зв'яжеться наш спеціаліст")+'</p>';
+  scopeEl.appendChild(success);
+}
+
+wireRequiredValidation(document.querySelector('.order-wrap'), document.getElementById('orderSubmit'), function(){
+  showThankYou(document.querySelector('.order-wrap'), false, "Ваше замовлення оформлене. Незабаром з вами зв'яжеться наш спеціаліст, щоб обговорити деталі");
+});
 </script>
 
 </body>
