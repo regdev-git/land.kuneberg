@@ -1,0 +1,483 @@
+<title>Інструкція адмін-панелі</title>
+<style>
+:root{
+  --ink:#191715; --ink-soft:#4a453f; --muted:#726c63;
+  --paper:#f7f5f2; --white:#ffffff;
+  --line:#e7e3dc; --line-strong:#d8d2c7;
+  --orange:#d85028; --orange-dark:#b53f1d; --orange-tint:#fbe9e2;
+  --green:#3a8f4a; --green-tint:#e7f3e9;
+  --r-btn:999px; --r-card:16px;
+  --shadow-card:0 18px 40px -24px rgba(25,20,15,.35);
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+
+/* ---------- top banner ---------- */
+.hero{background:var(--ink);color:#fff;padding:40px 24px 32px;}
+.hero-inner{max-width:880px;margin:0 auto;}
+.hero-logo{font-weight:800;font-size:14px;letter-spacing:.04em;color:var(--orange-tint);text-transform:uppercase;margin-bottom:14px;}
+.hero h1{font-size:30px;font-weight:800;margin:0 0 10px;letter-spacing:-0.01em;}
+.hero p{font-size:15px;line-height:1.6;color:#cfc9be;margin:0 0 20px;max-width:640px;}
+.hero-link{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:13.5px;padding:12px 22px;border-radius:var(--r-btn);text-decoration:none;}
+.hero-link:hover{background:var(--orange-dark);}
+
+/* ---------- sticky section nav ---------- */
+.subnav{position:sticky;top:0;z-index:20;background:rgba(247,245,242,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.subnav-inner{max-width:880px;margin:0 auto;padding:0 24px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+.subnav-inner::-webkit-scrollbar{display:none;}
+.subnav a{flex-shrink:0;padding:14px 14px;font-size:13px;font-weight:700;color:var(--ink-soft);text-decoration:none;border-bottom:2.5px solid transparent;white-space:nowrap;}
+.subnav a:hover{color:var(--orange);}
+
+/* ---------- content ---------- */
+.wrap{max-width:880px;margin:0 auto;padding:48px 24px 100px;}
+.section{padding:48px 0;border-bottom:1px solid var(--line);}
+.section:last-child{border-bottom:none;}
+.section-eyebrow{font-size:12px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;}
+.section h2{font-size:25px;font-weight:800;margin:0 0 12px;letter-spacing:-0.01em;}
+.section-desc{font-size:14.5px;line-height:1.65;color:var(--muted);margin:0 0 28px;max-width:620px;}
+
+/* ---------- admin "screenshot" mock ---------- */
+.shot{background:#fff;border:1px solid var(--line-strong);border-radius:var(--r-card);box-shadow:var(--shadow-card);overflow:hidden;margin-bottom:28px;}
+.shot-bar{display:flex;align-items:center;gap:7px;padding:11px 16px;background:#eeece7;border-bottom:1px solid var(--line-strong);}
+.shot-dot{width:9px;height:9px;border-radius:50%;background:#d8d2c7;}
+.shot-url{margin-left:8px;font-size:11.5px;color:var(--muted);font-family:monospace;}
+.shot-body{padding:20px;overflow-x:auto;}
+
+/* scoped recreation of admin/assets/admin.css, for visual accuracy inside .admin-mock */
+.admin-mock{--a-line:#e7e3dc;--a-line-strong:#d8d2c7;--a-muted:#726c63;--a-ink:#191715;--a-orange:#d85028;--a-orange-dark:#b53f1d;--a-orange-tint:#fbe9e2;font-family:-apple-system,'Segoe UI',Arial,sans-serif;font-size:14px;color:var(--a-ink);}
+.admin-mock .m-nav{display:flex;gap:4px;margin-bottom:18px;flex-wrap:wrap;}
+.admin-mock .m-nav span{padding:7px 13px;border-radius:999px;font-size:12px;font-weight:600;color:var(--a-muted);}
+.admin-mock .m-nav span.active{background:var(--a-ink);color:#fff;}
+.admin-mock h1{font-size:19px;font-weight:800;margin:0 0 4px;letter-spacing:-0.01em;}
+.admin-mock .m-sub{color:var(--a-muted);font-size:12.5px;margin:0 0 18px;}
+.admin-mock .m-card{background:#fff;border:1px solid var(--a-line);border-radius:12px;padding:16px 18px;margin-bottom:14px;}
+.admin-mock .m-card h3{font-size:13.5px;font-weight:700;margin:0 0 12px;}
+.admin-mock .m-field{margin-bottom:12px;}
+.admin-mock .m-field label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--a-muted);margin-bottom:5px;}
+.admin-mock .m-field .m-input, .admin-mock .m-field .m-textarea{width:100%;border:1.3px solid var(--a-line-strong);border-radius:7px;background:#fff;padding:8px 10px;font-family:inherit;font-size:12.5px;color:var(--a-ink);}
+.admin-mock .m-field .m-textarea{min-height:46px;line-height:1.5;white-space:pre-wrap;}
+.admin-mock .m-field-hint{font-size:10.5px;color:var(--a-muted);margin-top:4px;}
+.admin-mock .m-two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media (max-width:560px){.admin-mock .m-two-col{grid-template-columns:1fr;}}
+.admin-mock .m-badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.04em;padding:2px 6px;border-radius:5px;margin-bottom:5px;}
+.admin-mock .m-badge.ua{background:#e7f0fb;color:#1a5fa8;}
+.admin-mock .m-badge.ru{background:var(--a-orange-tint);color:var(--a-orange-dark);}
+.admin-mock .m-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;font-size:11.5px;font-weight:700;border-radius:999px;border:1.3px solid transparent;cursor:default;font-family:inherit;}
+.admin-mock .m-btn-primary{background:var(--a-orange);color:#fff;}
+.admin-mock .m-btn-outline{background:transparent;color:var(--a-ink);border-color:var(--a-line-strong);}
+.admin-mock .m-btn-danger{background:transparent;color:#b53f1d;font-size:10.5px;padding:5px 10px;}
+.admin-mock .m-row-between{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.admin-mock .m-photo-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.admin-mock .m-photo{width:78px;}
+.admin-mock .m-photo .m-ph-img{width:78px;height:58px;border-radius:7px;object-fit:cover;border:1px solid var(--a-line);margin-bottom:5px;}
+.admin-mock .m-photo .m-btn{width:100%;justify-content:center;padding:4px;font-size:9.5px;margin-bottom:3px;}
+.admin-mock .m-dashed{border-top:2px dashed var(--a-line-strong);padding-top:16px;margin-top:4px;}
+.admin-mock .m-order{font-size:10.5px;color:var(--a-muted);font-weight:700;}
+.admin-mock .m-testi-row{display:flex;gap:14px;align-items:center;}
+.admin-mock .m-testi-row img{width:52px;height:52px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+
+/* ---------- steps ---------- */
+.steps{list-style:none;margin:0 0 20px;padding:0;counter-reset:step;}
+.steps li{counter-increment:step;display:flex;gap:14px;margin-bottom:16px;}
+.steps li::before{content:counter(step);flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.steps li .step-text{font-size:14.5px;line-height:1.6;padding-top:2px;}
+.steps li .step-text code{background:var(--line);padding:1px 6px;border-radius:5px;font-size:13px;}
+.steps li .step-text b{color:var(--ink);}
+
+/* ---------- callout ---------- */
+.callout{display:flex;gap:12px;padding:16px 18px;border-radius:12px;font-size:13.5px;line-height:1.6;margin:0 0 20px;}
+.callout-warn{background:var(--orange-tint);color:#7a3015;}
+.callout-tip{background:var(--green-tint);color:#1e5a2a;}
+.callout-icon{flex-shrink:0;font-size:16px;line-height:1.5;}
+
+/* ---------- final tips ---------- */
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+@media (max-width:620px){.tips-grid{grid-template-columns:1fr;}}
+.tip-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+.tip-card h4{font-size:13.5px;font-weight:800;margin:0 0 6px;}
+.tip-card p{font-size:13px;line-height:1.55;color:var(--muted);margin:0;}
+
+footer{text-align:center;padding:36px 24px;font-size:12px;color:var(--muted);}
+</style>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">KUNEBERG</div>
+    <h1>Інструкція для адмін-панелі сайту</h1>
+    <p>Покроковий гайд по всіх розділах: що для чого, і як внести зміни. Кожна збережена зміна одразу з'являється на сайті.</p>
+    <a class="hero-link" href="https://land.kuneberg.com.ua/admin/" target="_blank" rel="noopener">Відкрити адмін-панель →</a>
+  </div>
+</div>
+
+<nav class="subnav">
+  <div class="subnav-inner">
+    <a href="#login">Вхід</a>
+    <a href="#seo">SEO</a>
+    <a href="#products">Товари</a>
+    <a href="#cases">Кейси</a>
+    <a href="#testimonials">Відгуки</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacts">Контакти</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="section" id="login">
+    <div class="section-eyebrow">Крок 0</div>
+    <h2>Вхід в адмінку</h2>
+    <p class="section-desc">Адмінка доступна за адресою <b>land.kuneberg.com.ua/admin</b>. Увійдіть логіном і паролем, які були задані при першому створенні акаунту.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/login.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock" style="max-width:320px;margin:0 auto;">
+          <h1 style="text-align:center;font-size:16px;">Вхід в адмінку KUNEBERG</h1>
+          <div class="m-field" style="margin-top:14px;"><label>Логін</label><div class="m-input" style="color:#a29c8f;">ваш логін</div></div>
+          <div class="m-field"><label>Пароль</label><div class="m-input" style="color:#a29c8f;">••••••••</div></div>
+          <div class="m-btn m-btn-primary" style="width:100%;justify-content:center;margin-top:4px;">Увійти</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text">Перейдіть на <b>land.kuneberg.com.ua/admin</b></div></li>
+      <li><div class="step-text">Введіть логін і пароль, натисніть <b>«Увійти»</b></div></li>
+      <li><div class="step-text">Зверху з'явиться меню з усіма розділами — ними й будемо користуватись далі</div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="seo">
+    <div class="section-eyebrow">Розділ 1</div>
+    <h2>SEO</h2>
+    <p class="section-desc">Title і Description — те, що Google показує в результатах пошуку для кожної сторінки. Окремо для головної сторінки та кожного товару, окремо для UA і RU.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/seo.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock">
+          <div class="m-nav"><span>SEO</span><span>Товари</span><span>Кейси</span><span>Відгуки</span><span>FAQ</span><span>Контакти</span></div>
+          <h1>SEO</h1>
+          <div class="m-sub">Title та description для пошукових систем — головна сторінка та сторінки товарів.</div>
+          <div class="m-card">
+            <h3>Товар: Витяжний зонт</h3>
+            <div class="m-two-col">
+              <div>
+                <span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Title</label><div class="m-input">Витяжний зонт з нержавіючої сталі – KUNEBERG</div><div class="m-field-hint">Рекомендована довжина — до 60-70 символів.</div></div>
+                <div class="m-field"><label>Description</label><div class="m-textarea">Зонт витяжний пристінний з нержавіючої сталі AISI 201...</div></div>
+              </div>
+              <div>
+                <span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Title</label><div class="m-input">Вытяжной зонт из нержавеющей стали – KUNEBERG</div></div>
+                <div class="m-field"><label>Description</label><div class="m-textarea">Зонт вытяжной пристенный из нержавеющей стали AISI 201...</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-btn m-btn-primary">Зберегти всі зміни</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text">Знайдіть потрібну картку — <b>«Головна сторінка»</b> або конкретний товар</div></li>
+      <li><div class="step-text">Відредагуйте <b>Title</b> (заголовок, до 70 символів) і <b>Description</b> (опис, до 160 символів) — для UA і для RU окремо</div></li>
+      <li><div class="step-text">Внизу сторінки натисніть <b>«Зберегти всі зміни»</b> — це збереже одразу всі картки на сторінці, не тільки ту, яку редагували</div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="products">
+    <div class="section-eyebrow">Розділ 2</div>
+    <h2>Товари</h2>
+    <p class="section-desc">Ціна і фотогалерея для кожного з 6 товарів. Фото показуються на сайті в тому ж порядку, що й тут.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/products.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock">
+          <div class="m-nav"><span>SEO</span><span class="active">Товари</span><span>Кейси</span><span>Відгуки</span><span>FAQ</span><span>Контакти</span></div>
+          <h1>Товари</h1>
+          <div class="m-sub">Ціна та фотографії для кожного товару. Фото показуються в тому ж порядку, що й у галереї на сторінці товару.</div>
+          <div class="m-card">
+            <h3>Барна станція</h3>
+            <div class="m-field" style="max-width:160px;"><label>Ціна, ₴</label><div class="m-input">39 000</div></div>
+            <div class="m-btn m-btn-primary" style="margin-bottom:14px;">Зберегти ціну</div>
+            <div class="m-field-hint" style="margin-bottom:8px;">Фото (WEBP, JPG або PNG, до 8 МБ кожне)</div>
+            <div class="m-photo-row">
+              <div class="m-photo"><div class="m-ph-img" style="background:#e2dfd6;"></div><div class="m-btn m-btn-outline">Замінити</div><div class="m-btn m-btn-danger">Видалити</div></div>
+              <div class="m-photo"><div class="m-ph-img" style="background:#dcd8cc;"></div><div class="m-btn m-btn-outline">Замінити</div><div class="m-btn m-btn-danger">Видалити</div></div>
+              <div class="m-photo"><div class="m-ph-img" style="background:#e6e2d8;"></div><div class="m-btn m-btn-outline">Замінити</div><div class="m-btn m-btn-danger">Видалити</div></div>
+            </div>
+            <div class="m-field" style="max-width:260px;"><label>Додати нове фото</label><div class="m-input" style="color:#a29c8f;">Файл не обрано</div></div>
+            <div class="m-btn m-btn-primary">Додати фото</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text"><b>Змінити ціну:</b> впишіть нове число в поле «Ціна, ₴» → <b>«Зберегти ціну»</b> (діє тільки для цього товару)</div></li>
+      <li><div class="step-text"><b>Замінити фото:</b> під потрібним фото натисніть «Файл не обрано», оберіть нову картинку → <b>«Замінити»</b></div></li>
+      <li><div class="step-text"><b>Видалити фото:</b> кнопка <b>«Видалити»</b> під фото</div></li>
+      <li><div class="step-text"><b>Додати нове фото:</b> внизу картки оберіть файл → <b>«Додати фото»</b> — додасться в кінець галереї</div></li>
+    </ul>
+
+    <div class="callout callout-warn"><span class="callout-icon">⚠️</span><div>Не можна видалити останнє фото товару — у кожного товару має лишатись хоча б одне зображення.</div></div>
+  </section>
+
+  <section class="section" id="cases">
+    <div class="section-eyebrow">Розділ 3</div>
+    <h2>Кейси</h2>
+    <p class="section-desc">Реалізовані проєкти з блоку «Наші роботи» на головній сторінці.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/cases.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock">
+          <div class="m-nav"><span>SEO</span><span>Товари</span><span class="active">Кейси</span><span>Відгуки</span><span>FAQ</span><span>Контакти</span></div>
+          <h1>Кейси</h1>
+          <div class="m-sub">Реалізовані проєкти, що показуються в блоці "Наші роботи" на головній сторінці.</div>
+          <div class="m-card">
+            <h3>Ресторан «під ключ» <span style="color:#726c63;font-weight:400;">(restoran-pid-kliuch)</span></h3>
+            <div class="m-two-col">
+              <div>
+                <span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Назва</label><div class="m-input">Ресторан «під ключ»</div></div>
+                <div class="m-field"><label>Місто</label><div class="m-input">Київ</div></div>
+                <div class="m-field"><label>Задача</label><div class="m-textarea">Обладнати виробничу кухню ресторану повним циклом меблів з нержавіючої сталі.</div></div>
+                <div class="m-field"><label>Що зроблено (по пункту на рядок)</label><div class="m-textarea">Виробничі столи
+Мийні ванни
+Стелажі
+Витяжні зонти</div></div>
+              </div>
+              <div>
+                <span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Название</label><div class="m-input">Ресторан «под ключ»</div></div>
+                <div class="m-field"><label>Город</label><div class="m-input">Киев</div></div>
+                <div class="m-field"><label>Задача</label><div class="m-textarea">Оборудовать производственную кухню ресторана полным циклом мебели из нержавеющей стали.</div></div>
+                <div class="m-field"><label>Что сделано (по пункту на строку)</label><div class="m-textarea">Производственные столы
+Моечные ванны
+Стеллажи
+Вытяжные зонты</div></div>
+              </div>
+            </div>
+            <div class="m-field" style="max-width:140px;"><label>Порядок показу</label><div class="m-input">0</div></div>
+            <div class="m-row-between" style="margin-top:6px;">
+              <div class="m-btn m-btn-primary">Зберегти</div>
+            </div>
+            <div class="m-field-hint" style="margin:14px 0 8px;">Фото (WEBP, JPG або PNG, до 8 МБ кожне)</div>
+            <div class="m-photo-row">
+              <div class="m-photo"><div class="m-ph-img" style="background:#e2dfd6;"></div><div class="m-btn m-btn-outline">Замінити</div><div class="m-btn m-btn-danger">Видалити</div></div>
+              <div class="m-photo"><div class="m-ph-img" style="background:#dcd8cc;"></div><div class="m-btn m-btn-outline">Замінити</div><div class="m-btn m-btn-danger">Видалити</div></div>
+            </div>
+            <div class="m-btn m-btn-danger" style="margin-top:4px;">Видалити весь кейс</div>
+          </div>
+
+          <div class="m-card m-dashed">
+            <h3>Додати новий кейс</h3>
+            <div class="m-field"><label>Код кейсу (slug)</label><div class="m-input" style="color:#a29c8f;">napr-novyi-rozdratok</div><div class="m-field-hint">Лише латинські літери, цифри та дефіс. Використовується у назвах файлів фото.</div></div>
+            <div class="m-two-col">
+              <div>
+                <span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Назва</label><div class="m-input" style="color:#a29c8f;"></div></div>
+                <div class="m-field"><label>Місто</label><div class="m-input" style="color:#a29c8f;"></div></div>
+              </div>
+              <div>
+                <span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Название</label><div class="m-input" style="color:#a29c8f;"></div></div>
+                <div class="m-field"><label>Город</label><div class="m-input" style="color:#a29c8f;"></div></div>
+              </div>
+            </div>
+            <div class="m-field" style="max-width:300px;"><label>Перше фото</label><div class="m-input" style="color:#a29c8f;">Файл не обрано</div></div>
+            <div class="m-btn m-btn-primary">Додати кейс</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text"><b>Редагувати існуючий кейс:</b> змінюйте текстові поля й «Порядок показу» (0 — показується першим) → <b>«Зберегти»</b></div></li>
+      <li><div class="step-text">Поле <b>«Що зроблено»</b> — по одному пункту на рядок. <b>Важливо:</b> в UA і RU має бути <b>однакова кількість рядків</b>, інакше збереження видасть помилку</div></li>
+      <li><div class="step-text">Фото додаються/замінюються/видаляються так само, як у розділі «Товари»</div></li>
+      <li><div class="step-text"><b>Додати новий кейс:</b> внизу сторінки заповніть «Код кейсу» (латиницею, без пробілів — наприклад <code>restoran-kyiv-2</code>), всі текстові поля UA і RU, завантажте перше фото → <b>«Додати кейс»</b>. Інші фото можна додати вже після створення</div></li>
+    </ul>
+
+    <div class="callout callout-warn"><span class="callout-icon">⚠️</span><div><b>«Видалити весь кейс»</b> видаляє кейс і ВСІ його фото одразу. Дію не можна скасувати.</div></div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="section-eyebrow">Розділ 4</div>
+    <h2>Відгуки</h2>
+    <p class="section-desc">Скрін-відгуки клієнтів зі слайдера на головній сторінці.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/testimonials.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock">
+          <div class="m-nav"><span>SEO</span><span>Товари</span><span>Кейси</span><span class="active">Відгуки</span><span>FAQ</span><span>Контакти</span></div>
+          <h1>Відгуки</h1>
+          <div class="m-sub">Скрін-відгуки клієнтів, що показуються в слайдері на головній сторінці.</div>
+          <div class="m-card">
+            <div class="m-testi-row">
+              <img src="" alt="" style="background:#e2dfd6;">
+              <div style="flex:1;">
+                <div><span class="m-badge ua">UA</span> <b>Олексій</b> — Кондитерська, Київ</div>
+                <div style="margin-top:4px;"><span class="m-badge ru">RU</span> <b>Алексей</b> — Кондитерская, Киев</div>
+              </div>
+              <div class="m-btn m-btn-danger">Видалити</div>
+            </div>
+          </div>
+          <div class="m-card m-dashed">
+            <h3>Додати новий відгук</h3>
+            <div class="m-field"><label>Скріншот відгуку (WEBP, JPG або PNG, до 8 МБ)</label><div class="m-input" style="color:#a29c8f;">Файл не обрано</div></div>
+            <div class="m-two-col">
+              <div>
+                <span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Ім'я</label><div class="m-input" style="color:#a29c8f;"></div></div>
+                <div class="m-field"><label>Заклад / місто</label><div class="m-input" style="color:#a29c8f;">Ресторан, Київ</div></div>
+              </div>
+              <div>
+                <span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Имя</label><div class="m-input" style="color:#a29c8f;"></div></div>
+                <div class="m-field"><label>Заведение / город</label><div class="m-input" style="color:#a29c8f;">Ресторан, Киев</div></div>
+              </div>
+            </div>
+            <div class="m-btn m-btn-primary">Додати відгук</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text">Внизу сторінки оберіть <b>скріншот</b> відгуку (саме картинку з текстом відгуку, не окреме фото)</div></li>
+      <li><div class="step-text">Заповніть <b>Ім'я</b> та <b>Заклад / місто</b> — окремо UA і RU</div></li>
+      <li><div class="step-text">Натисніть <b>«Додати відгук»</b> — з'явиться в кінці слайдера на сайті</div></li>
+      <li><div class="step-text">Видалити відгук — кнопка <b>«Видалити»</b> біля потрібного рядка</div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-eyebrow">Розділ 5</div>
+    <h2>FAQ</h2>
+    <p class="section-desc">Питання та відповіді з блоку «Часті запитання» на головній сторінці.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/faq.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock">
+          <div class="m-nav"><span>SEO</span><span>Товари</span><span>Кейси</span><span>Відгуки</span><span class="active">FAQ</span><span>Контакти</span></div>
+          <h1>FAQ</h1>
+          <div class="m-sub">Питання та відповіді, що показуються в блоці «Часті запитання» на головній сторінці. Кожне питання — окремо для UA та RU.</div>
+          <div class="m-card">
+            <div class="m-row-between" style="margin-bottom:10px;"><span class="m-order">Порядок показу: #0</span></div>
+            <div class="m-two-col">
+              <div>
+                <span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Питання</label><div class="m-input">Чи можна виготовити меблі за моїми розмірами?</div></div>
+                <div class="m-field"><label>Відповідь</label><div class="m-textarea">Так, ми виготовляємо меблі з нержавіючої сталі за вашими розмірами та потребами...</div></div>
+              </div>
+              <div>
+                <span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Вопрос</label><div class="m-input">Можно ли изготовить мебель по моим размерам?</div></div>
+                <div class="m-field"><label>Ответ</label><div class="m-textarea">Да, мы изготавливаем мебель из нержавеющей стали по вашим размерам и потребностям...</div></div>
+              </div>
+            </div>
+            <div class="m-field" style="max-width:140px;"><label>Порядок показу</label><div class="m-input">0</div></div>
+            <div class="m-row-between"><div class="m-btn m-btn-primary">Зберегти</div><div class="m-btn m-btn-danger">Видалити</div></div>
+          </div>
+          <div class="m-card m-dashed">
+            <h3>Додати нове питання</h3>
+            <div class="m-two-col">
+              <div><span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Питання</label><div class="m-input" style="color:#a29c8f;"></div></div>
+                <div class="m-field"><label>Відповідь</label><div class="m-textarea" style="color:#a29c8f;"></div></div>
+              </div>
+              <div><span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Вопрос</label><div class="m-input" style="color:#a29c8f;"></div></div>
+                <div class="m-field"><label>Ответ</label><div class="m-textarea" style="color:#a29c8f;"></div></div>
+              </div>
+            </div>
+            <div class="m-btn m-btn-primary">Додати питання</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text">Кожна картка — окреме питання. Відредагуйте текст → <b>«Зберегти»</b> (діє тільки для цього питання)</div></li>
+      <li><div class="step-text"><b>«Порядок показу»</b> — число, за яким сортуються питання на сайті: 0 показується першим, далі за зростанням</div></li>
+      <li><div class="step-text"><b>Додати нове питання:</b> внизу сторінки заповніть питання+відповідь UA і RU → <b>«Додати питання»</b></div></li>
+      <li><div class="step-text">Видалити питання — кнопка <b>«Видалити»</b> на картці</div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="section-eyebrow">Розділ 6</div>
+    <h2>Контакти</h2>
+    <p class="section-desc">Телефон, адреса й графік роботи, що показуються в блоці контактів на сайті.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-url">land.kuneberg.com.ua/admin/settings.php</span></div>
+      <div class="shot-body">
+        <div class="admin-mock">
+          <div class="m-nav"><span>SEO</span><span>Товари</span><span>Кейси</span><span>Відгуки</span><span>FAQ</span><span class="active">Контакти</span></div>
+          <h1>Контакти</h1>
+          <div class="m-sub">Дані, що показуються в блоці контактів на головній сторінці.</div>
+          <div class="m-card">
+            <div class="m-field"><label>Телефон у шапці сайту (однаковий для UA та RU)</label><div class="m-input">+38 (067) 899-20-00</div><div class="m-field-hint">Цей номер використовується для кнопки дзвінка та Viber у шапці й меню сайту.</div></div>
+            <div class="m-field"><label>Телефон(и) у блоці «Контакти» (однаковий для UA та RU)</label><div class="m-input">+38 (067) 899-20-00, +38 (095) 388-30-00</div><div class="m-field-hint">Можна вказати декілька номерів через кому.</div></div>
+            <div class="m-two-col">
+              <div>
+                <span class="m-badge ua">UA</span>
+                <div class="m-field"><label>Адреса</label><div class="m-textarea">м. Київ, вул. Василя Стуса, 35-Б,&lt;br&gt;оф. 513, Бізнес центр B1</div><div class="m-field-hint">Можна використовувати &lt;br&gt; для переносу рядка.</div></div>
+                <div class="m-field"><label>Графік роботи</label><div class="m-input">пн–пт з 09:00 до 18:00</div></div>
+              </div>
+              <div>
+                <span class="m-badge ru">RU</span>
+                <div class="m-field"><label>Адрес</label><div class="m-textarea">г. Киев, ул. Василия Стуса, 35-Б,&lt;br&gt;оф. 513, Бизнес центр B1</div></div>
+                <div class="m-field"><label>График работы</label><div class="m-input">пн–пт с 09:00 до 18:00</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-btn m-btn-primary">Зберегти всі зміни</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="steps">
+      <li><div class="step-text"><b>Телефон у шапці</b> і <b>Телефон(и) у блоці «Контакти»</b> — спільні для UA і RU, вводяться один раз</div></li>
+      <li><div class="step-text"><b>Адреса</b> і <b>Графік роботи</b> — окремо для UA і RU</div></li>
+      <li><div class="step-text">В адресі можна використати <code>&lt;br&gt;</code> там, де потрібен перенос рядка</div></li>
+      <li><div class="step-text">Одна кнопка <b>«Зберегти всі зміни»</b> внизу зберігає все одразу</div></li>
+    </ul>
+  </section>
+
+  <section class="section" style="border-bottom:none;padding-bottom:0;">
+    <div class="section-eyebrow">Коротко про головне</div>
+    <h2>На що звернути увагу</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>Зміни — одразу на сайті</h4>
+        <p>Після «Зберегти» зміна миттєво з'являється на живому сайті. Чернетки немає — перевіряйте текст перед збереженням.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Заповнюйте обидві мови</h4>
+        <p>Майже всюди є окремі поля UA і RU. Якщо заповнити тільки одну — на іншій мовній версії сайту буде порожньо.</p>
+      </div>
+      <div class="tip-card">
+        <h4>«Видалити» — без відновлення</h4>
+        <p>Видалення фото, кейсу, відгуку чи питання відбувається одразу й остаточно. Браузер попросить підтвердження — уважно читайте, перш ніж погоджуватись.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Формат фото</h4>
+        <p>WEBP, JPG або PNG, до 8 МБ кожне. Інші формати адмінка не прийме.</p>
+        <p style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;">💡 Перед додаванням краще оптимізувати зображення і перевести їх у формат <b>WEBP</b> — він важить найменше і не перевантажує сайт.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Інструкція підготовлена для адмін-панелі land.kuneberg.com.ua</footer>
